@@ -6,29 +6,31 @@ using System.Collections;
 public class HeroStats : MonoBehaviour {
 	
 	//
-	public int health = 100;
-	public int stamina = 100;
+	[Header("Stats")]
+	public int maxHealth = 100;
+	public int maxStamina = 100;
+	
+	[Header("Stamina")]
 	public float staminaRegainSpeed = 10.0f;
 	public float staminaCooldown = 5.0f;
 	public float staminaLossMultiplier = 2.0f;
 	
-	public float currentStamina;
-	public int currentHealth;
-	
 	//
+	private int health;
+	private float stamina;
 	private float currentCooldownTime;
 	
 	private HeroHands cachedHands;
 	
 	//
 	public void TakeHealth(float amount) {
-		currentHealth = Mathf.Max(0,currentHealth - Mathf.CeilToInt(amount));
-		Debug.Log(string.Format("Ouch! Health: {0}",currentHealth));
+		health = Mathf.Max(0,health - Mathf.CeilToInt(amount));
+		Debug.Log(string.Format("Ouch! Health: {0}",health));
 	}
 	
 	public void TakeStamina(float amount) {
-		currentStamina = Mathf.Max(0,currentStamina - Mathf.CeilToInt(amount));
-		Debug.Log(string.Format("Getting tired? Stamina: {0}",currentStamina));
+		stamina = Mathf.Max(0,stamina - Mathf.CeilToInt(amount));
+		Debug.Log(string.Format("Getting tired? Stamina: {0}",stamina));
 	}
 	
 	//
@@ -37,8 +39,8 @@ public class HeroStats : MonoBehaviour {
 	}
 	
 	private void Start() {
-		currentHealth = health;
-		currentStamina = stamina;
+		health = maxHealth;
+		stamina = maxStamina;
 	}
 	
 	//
@@ -51,13 +53,13 @@ public class HeroStats : MonoBehaviour {
 		
 		if(obj) {
 			currentCooldownTime = staminaCooldown;
-			currentStamina = Mathf.Max(0,currentStamina - staminaLossMultiplier * obj.mass * Time.deltaTime);
-			if(Mathf.Abs(currentStamina) < Mathf.Epsilon) cachedHands.Drop();
+			stamina = Mathf.Max(0,stamina - staminaLossMultiplier * obj.mass * Time.deltaTime);
+			if(Mathf.Abs(stamina) < Mathf.Epsilon) cachedHands.Drop();
 		}
 		
 		// regain stamina
 		if(Mathf.Abs(currentCooldownTime) < Mathf.Epsilon) {
-			currentStamina = Mathf.Min(currentStamina + staminaRegainSpeed * Time.deltaTime,stamina);
+			stamina = Mathf.Min(stamina + staminaRegainSpeed * Time.deltaTime,maxStamina);
 		}
 	}
 }
