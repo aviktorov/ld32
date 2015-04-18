@@ -330,7 +330,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11496032}
-        m_MethodName: AddDamage
+        m_MethodName: TakeHealth
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -382,6 +382,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   stamina: 100
+  staminaRegainSpeed: 10
+  staminaCooldown: 5
+  staminaLossMultiplier: 2
+  currentStamina: 0
+  currentHealth: 0
 --- !u!136 &13642690
 CapsuleCollider:
   m_ObjectHideFlags: 1
