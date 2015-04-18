@@ -29,7 +29,7 @@ public class HeroInput : MonoBehaviour {
 	
 	private void Start() {
 		if(!Camera.main) Debug.LogError("No main camera on scene");
-		if(!cachedHands) Debug.LogError("Handles hero, yikes");
+		if(!cachedHands) Debug.LogError("Handless hero, yikes");
 		
 		cachedCameraTransform = Camera.main.GetComponent<Transform>();
 		cachedHandsTransform = cachedHands.transform;
