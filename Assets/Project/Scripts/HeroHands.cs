@@ -7,11 +7,17 @@ public class HeroHands : MonoBehaviour {
 	
 	//
 	private Transform cachedTransform;
+	private GameObject cachedHero;
+	
 	private Rigidbody detectedObject;
 	private Rigidbody grabbedObject;
 	private FixedJoint grabbedJoint;
 	
 	//
+	public void SetHero(GameObject hero) {
+		cachedHero = hero;
+	}
+	
 	public Rigidbody GetGrabbedObject() {
 		return grabbedObject;
 	}
@@ -23,7 +29,7 @@ public class HeroHands : MonoBehaviour {
 		Destroy(grabbedJoint);
 		grabbedJoint = null;
 		
-		if(throwStrength > 0.0f) grabbedObject.AddForce(cachedTransform.right * throwStrength, ForceMode.Impulse);
+		if(throwStrength > 0.0f) grabbedObject.AddForce(cachedTransform.right * throwStrength,ForceMode.Impulse);
 		grabbedObject = null;
 	}
 	
@@ -37,11 +43,14 @@ public class HeroHands : MonoBehaviour {
 		grabbedJoint = gameObject.AddComponent<FixedJoint>();
 		grabbedJoint.connectedBody = grabbedObject;
 		grabbedJoint.breakForce = breakForce;
+		
+		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",cachedHero,SendMessageOptions.DontRequireReceiver);
 	}
 	
 	//
 	private void Awake() {
 		cachedTransform = GetComponent<Transform>();
+		cachedHero = null;
 		
 		grabbedObject = null;
 		grabbedJoint = null;
