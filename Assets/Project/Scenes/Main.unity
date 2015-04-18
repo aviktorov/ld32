@@ -130,6 +130,26 @@ Prefab:
       propertyPath: m_Name
       value: Hero1
       objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: legsHorizontal
+      value: Player1LegsHorizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: legsVertical
+      value: Player1LegsVertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: handsHorizontal
+      value: Player1HandsHorizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: handsVertical
+      value: Player1HandsVertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: grab
+      value: Player1Grab
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
   m_IsPrefabParent: 0
