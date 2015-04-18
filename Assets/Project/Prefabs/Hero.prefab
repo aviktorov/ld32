@@ -354,8 +354,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfaf8310e415fe48b1bd38deaebe1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  legsHorizontal: LegsHorizontal
+  legsVertical: LegsVertical
+  handsHorizontal: HandsHorizontal
+  handsVertical: HandsVertical
+  grab: Grab
   maxVelocity: 2
   acceleration: 30
+  throwStrength: 10
+  throwBreakForce: 1000
 --- !u!114 &11489680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,8 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e09b828166ec5f458c510abf04ca046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwStrength: 10
-  throwBreakForce: 1000
 --- !u!114 &11496032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,13 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d10e62507d15144d8d6d34e250ff49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  stamina: 100
+  maxHealth: 100
+  maxStamina: 100
   staminaRegainSpeed: 10
   staminaCooldown: 5
   staminaLossMultiplier: 2
-  currentStamina: 0
-  currentHealth: 0
 --- !u!136 &13642690
 CapsuleCollider:
   m_ObjectHideFlags: 1
