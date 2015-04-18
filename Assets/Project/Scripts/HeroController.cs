@@ -40,8 +40,6 @@ public class HeroController : MonoBehaviour {
 		if(movement.sqrMagnitude > 1.0f) movement.Normalize();
 		
 		float angle = Mathf.Atan2(hands.y,hands.x) * Mathf.Rad2Deg;
-		Debug.Log(string.Format("Hands: {0}, Angle: {1}",hands,angle));
-		
 		handsTransform.eulerAngles = handsTransform.eulerAngles.WithZ(angle);
 		
 		Vector3 newVelocity = cachedBody.velocity + movement * acceleration * Time.deltaTime;
