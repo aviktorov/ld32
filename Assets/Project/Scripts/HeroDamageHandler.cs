@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using JamSuite.Events;
 
 /*
  */
@@ -7,11 +8,13 @@ public class HeroDamageHandler : MonoBehaviour {
 	
 	//
 	public float damageVelocityTreshold = 10.0f;
+	public FloatEvent onDamage = null;
 	
 	//
 	private void OnCollisionEnter(Collision collision) {
-		if(collision.relativeVelocity.magnitude < damageVelocityTreshold) return;
+		float magnitude = collision.relativeVelocity.magnitude;
+		if(magnitude < damageVelocityTreshold) return;
 		
-		Debug.Log("Ouch");
+		onDamage.Invoke(magnitude);
 	}
 }
