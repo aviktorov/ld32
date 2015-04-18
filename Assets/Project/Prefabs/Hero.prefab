@@ -372,11 +372,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfaf8310e415fe48b1bd38deaebe1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  legsHorizontal: Player2LegsHorizontal
-  legsVertical: Player2LegsVertical
-  handsHorizontal: Player2HandsHorizontal
-  handsVertical: Player2HandsVertical
-  grab: Player2Grab
+  legsHorizontal: LegsHorizontal
+  legsVertical: LegsVertical
+  handsHorizontal: HandsHorizontal
+  handsVertical: HandsVertical
+  grab: Grab
   maxVelocity: 2
   acceleration: 10
   throwStrength: 10

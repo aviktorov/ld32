@@ -36,18 +36,14 @@ public class HeroStats : MonoBehaviour {
 	//
 	public void TakeHealth(float amount) {
 		health = Mathf.Max(0,health - Mathf.CeilToInt(amount));
-		Debug.Log(string.Format("Ouch! Health: {0}",health));
 	}
 	
 	public void TakeStamina(float amount) {
 		stamina = Mathf.Max(0,stamina - Mathf.CeilToInt(amount));
-		Debug.Log(string.Format("Getting tired? Stamina: {0}",stamina));
 	}
 	
 	//
 	public void PrepareForGrab(GameObject sender) {
-		Debug.Log(string.Format("Hi grab! {0} from {1}",gameObject.name,sender.name));
-		
 		foreach(Rigidbody body in cachedBodies) {
 			body.constraints = RigidbodyConstraints.None;
 		}
@@ -58,8 +54,6 @@ public class HeroStats : MonoBehaviour {
 	}
 	
 	public void RestoreAfterLanding() {
-		Debug.Log(string.Format("Hi landing! {0}",gameObject.name));
-		
 		foreach(Rigidbody body in cachedBodies) {
 			body.constraints = RigidbodyConstraints.FreezeRotation;
 		}
