@@ -3,7 +3,7 @@ using System.Collections;
 
 /*
  */
-public class HeroController : MonoBehaviour {
+public class HeroInput : MonoBehaviour {
 	
 	//
 	public float maxVelocity = 10.0f;
