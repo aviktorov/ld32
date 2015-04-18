@@ -70,13 +70,11 @@ public class HeroStats : MonoBehaviour {
 	private void IgnoreCollisions(GameObject object1,GameObject object2,bool ignore = true) {
 		if(object1 == object2) return;
 		
-		Rigidbody[] bodies1 = object1.GetComponentsInChildren<Rigidbody>();
-		Rigidbody[] bodies2 = object2.GetComponentsInChildren<Rigidbody>();
 		
-		foreach(Rigidbody body1 in bodies1) {
-			foreach(Rigidbody body2 in bodies2) {
-				if(body1 == body2) continue;
-				IgnoreCollisions(body1,body2,ignore);
+		foreach(Collider collider1 in colliders1) {
+			foreach(Collider collider2 in colliders2) {
+				if(collider1 == collider2) continue;
+				Physics.IgnoreCollision(collider1,collider2,ignore);
 			}
 		}
 	}
