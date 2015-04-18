@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.1099999, z: 0}
+  m_LocalPosition: {x: 6.42000008, y: 2.1099999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 464924}
@@ -261,7 +261,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!54 &5433110
 Rigidbody:
@@ -325,7 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc5a4925167ae04ab6e4a80809c0fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageVelocityTreshold: 5
+  damageVelocityThreshold: 10
+  landingTime: 2
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -343,6 +344,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: JamSuite.Events.FloatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  onLand:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11496032}
+        m_MethodName: RestoreAfterLanding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &11421140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,13 +372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfaf8310e415fe48b1bd38deaebe1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  legsHorizontal: LegsHorizontal
-  legsVertical: LegsVertical
-  handsHorizontal: HandsHorizontal
-  handsVertical: HandsVertical
-  grab: Grab
+  legsHorizontal: Player2LegsHorizontal
+  legsVertical: Player2LegsVertical
+  handsHorizontal: Player2HandsHorizontal
+  handsVertical: Player2HandsVertical
+  grab: Player2Grab
   maxVelocity: 2
-  acceleration: 30
+  acceleration: 10
   throwStrength: 10
   throwBreakForce: 5000
 --- !u!114 &11489680
@@ -390,6 +408,7 @@ MonoBehaviour:
   staminaRegainSpeed: 10
   staminaCooldown: 5
   staminaLossMultiplier: 2
+  stabilizationSmoothness: 5
 --- !u!136 &13642690
 CapsuleCollider:
   m_ObjectHideFlags: 1

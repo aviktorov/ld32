@@ -126,26 +126,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsHorizontal
-      value: Player1LegsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsVertical
-      value: Player1LegsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsHorizontal
-      value: Player1HandsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsVertical
-      value: Player1HandsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: grab
-      value: Player1Grab
-      objectReference: {fileID: 0}
     - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Name
       value: Hero1
@@ -348,26 +328,6 @@ Prefab:
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsHorizontal
-      value: Player2LegsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsVertical
-      value: Player2LegsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsHorizontal
-      value: Player2HandsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsVertical
-      value: Player2HandsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: grab
-      value: Player2Grab
       objectReference: {fileID: 0}
     - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Name
