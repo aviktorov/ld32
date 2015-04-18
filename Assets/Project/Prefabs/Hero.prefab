@@ -362,7 +362,7 @@ MonoBehaviour:
   maxVelocity: 2
   acceleration: 30
   throwStrength: 10
-  throwBreakForce: 1000
+  throwBreakForce: 5000
 --- !u!114 &11489680
 MonoBehaviour:
   m_ObjectHideFlags: 1
