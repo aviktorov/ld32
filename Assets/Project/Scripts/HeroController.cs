@@ -6,7 +6,8 @@ using System.Collections;
 public class HeroController : MonoBehaviour {
 	
 	//
-	public float velocity = 10.0f;
+	public float maxVelocity = 10.0f;
+	public float acceleration = 10.0f;
 	
 	//
 	private Rigidbody cachedBody;
@@ -30,6 +31,10 @@ public class HeroController : MonoBehaviour {
 		Vector3 movement = GetDirection("LegsHorizontal","LegsVertical");
 		Vector3 hands = GetDirection("HandsHorizontal","HandsVertical");
 		
-		cachedBody.velocity = cachedBody.velocity + movement * velocity * Time.deltaTime;
+		Vector3 newVelocity = cachedBody.velocity + movement * acceleration * Time.deltaTime;
+		newVelocity.y = 0.0f;
+		
+		if(newVelocity.sqrMagnitude > maxVelocity * maxVelocity) newVelocity = newVelocity.normalized * maxVelocity;
+		cachedBody.velocity = newVelocity.WithY(cachedBody.velocity.y);
 	}
 }
