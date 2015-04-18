@@ -42,6 +42,7 @@ public class HeroInput : MonoBehaviour {
 		}
 	}
 	
+	//
 	private void Update() {
 		if(cachedBody == null) return;
 		if(cachedHands == null) return;

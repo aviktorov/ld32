@@ -16,6 +16,20 @@ public class HeroHands : MonoBehaviour {
 	private FixedJoint grabbedJoint;
 	
 	//
+	public Rigidbody GetGrabbedObject() {
+		return grabbedObject;
+	}
+	
+	public void Drop() {
+		if(grabbedJoint) {
+			Destroy(grabbedJoint);
+			grabbedJoint = null;
+		}
+		
+		grabbedObject = null;
+	}
+	
+	//
 	private void Awake() {
 		cachedTransform = GetComponent<Transform>();
 		
@@ -24,7 +38,9 @@ public class HeroHands : MonoBehaviour {
 		detectedObject = null;
 	}
 	
+	//
 	private void Update() {
+		
 		// grab
 		if(Input.GetButtonDown("Grab") && detectedObject && !grabbedObject && !grabbedJoint) {
 			grabbedObject = detectedObject;
@@ -34,18 +50,15 @@ public class HeroHands : MonoBehaviour {
 			grabbedJoint.breakForce = throwBreakForce;
 		}
 		
-		// stop grabbing if our joint was broken
+		// stop holding if our joint was broken
 		if(grabbedObject && !grabbedJoint) {
 			grabbedObject = null;
 		}
 		
 		// throw
 		if(Input.GetButtonUp("Grab") && grabbedObject && grabbedJoint) {
-			Destroy(grabbedJoint);
-			grabbedJoint = null;
-			
 			grabbedObject.AddForce(cachedTransform.right * throwStrength, ForceMode.Impulse);
-			grabbedObject = null;
+			Drop();
 		}
 	}
 	
