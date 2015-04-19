@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 896b856497187cc42a4ec415804955ce
-timeCreated: 1429430269
+timeCreated: 1429432159
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,8 @@ TextureImporter:
     21300036: dance_02
     21300038: dance_03
     21300040: dance_04
+    21300042: jump_down_04
+    21300044: jump_down_05
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -153,7 +155,7 @@ TextureImporter:
     - name: gradient
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 160
         width: 32
         height: 32
@@ -275,6 +277,26 @@ TextureImporter:
         serializedVersion: 2
         x: 96
         y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jump_down_04
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jump_down_05
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
         width: 32
         height: 32
       alignment: 7
