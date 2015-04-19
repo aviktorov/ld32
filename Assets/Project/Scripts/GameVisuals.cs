@@ -31,12 +31,14 @@ public class GameVisuals : MonoBehaviour {
 	//
 	private void Awake() {
 		cachedState = GetComponent<GameState>();
-	}
-	
-	private void Start() {
+		
 		stageFrom = Stage.Menu;
 		stageTo = Stage.Menu;
 		currentTime = 0.0f;
+		currentHeroTime = 0.0f;
+	}
+	
+	private void Start() {
 		cachedCameraTransform = Camera.main.GetComponent<Transform>();
 	}
 	
