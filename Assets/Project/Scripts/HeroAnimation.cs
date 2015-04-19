@@ -10,20 +10,21 @@ public class HeroAnimation : MonoBehaviour {
 	private Rigidbody2D cachedBody;
 	private HeroHands cachedHands;
 	private HeroCollisions cachedCollision;
+	private HeroInput cachedInput;
 	
 	private void Awake() {
 		cachedAnimation = GetComponent<Animator>();
 		cachedBody = GetComponent<Rigidbody2D>();
 		cachedHands = GetComponent<HeroHands>();
+		cachedInput = GetComponent<HeroInput>();
 		cachedCollision = GetComponent<HeroCollisions>();
 	}
 	
 	private void Update () {
 		Vector3 velocity = cachedBody.velocity;
-		cachedAnimation.SetFloat("VelocityX",velocity.x);
 		cachedAnimation.SetFloat("VelocityY",velocity.y);
-		
-		cachedAnimation.SetBool("Grabbing",cachedHands.GetGrabbedObject() != null);
+		cachedAnimation.SetFloat("Grabbing",cachedHands.GetGrabbedObject() ? 1.0f : 0.0f);
 		cachedAnimation.SetBool("InAir",cachedCollision.InAir());
+		cachedAnimation.SetBool("Moving",cachedInput.IsMoving());
 	}
 }

@@ -21,7 +21,7 @@ public class HeroHands : MonoBehaviour {
 	//
 	public Rigidbody2D GetGrabbedObject() { return grabbedObject; }
 	
-	public void Drop(float throwStrength = 0.0f) {
+	public void Drop(float throwStrength = 0.0f,float throwVertical = 0.0f) {
 		if(!grabbedObject) return;
 		
 		if(grabbedJoint) {
@@ -32,12 +32,13 @@ public class HeroHands : MonoBehaviour {
 		grabbedObject.velocity = Vector2.zero;
 		grabbedObject.angularVelocity = 0.0f;
 		
-		JamSuite.Physics2D.IgnoreCollision(grabbedObject,cachedBody,false);
-		
+		JamSuite.Physics2D.IgnoreCollision(grabbedObject.gameObject,cachedBody.gameObject,false);
 		if(throwStrength > 0.0f) {
-			Vector2 throwDirection = new Vector2(cachedTransform.localScale.x,0.0f);
-			grabbedObject.AddForce(throwDirection * throwStrength,ForceMode2D.Impulse);
+			Vector2 throwDirection = new Vector2(cachedTransform.localScale.x,throwVertical);
+			grabbedObject.AddForce(throwDirection.normalized * throwStrength,ForceMode2D.Impulse);
 		}
+		
+		grabbedObject.gameObject.BroadcastMessage("PrepareForDrop",gameObject,SendMessageOptions.DontRequireReceiver);
 		
 		grabbedObject.mass = grabbedMass;
 		grabbedObject = null;
@@ -49,10 +50,10 @@ public class HeroHands : MonoBehaviour {
 		if(grabbedJoint) return;
 		
 		grabbedObject = detectedObject;
-		JamSuite.Physics2D.IgnoreCollision(grabbedObject,cachedBody,true);
+		JamSuite.Physics2D.IgnoreCollision(grabbedObject.gameObject,cachedBody.gameObject,true);
 		
 		grabbedObject.transform.position = cachedTransform.position + Vector3.up * grabOffset;
-		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
+		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",gameObject,SendMessageOptions.DontRequireReceiver);
 		
 		grabbedMass = grabbedObject.mass;
 		grabbedObject.mass = grabMass;

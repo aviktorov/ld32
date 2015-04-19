@@ -8,6 +8,7 @@ using JamSuite.Events;
 public class HeroCollisions : MonoBehaviour {
 	
 	//
+	public float groundTreshold = 0.7f;
 	public float damageVelocityThreshold = 10.0f;
 	public float landingTime = 2.0f;
 	public FloatEvent onDamage = null;
@@ -21,6 +22,8 @@ public class HeroCollisions : MonoBehaviour {
 	//
 	public bool InAir() { return inAir; }
 	public void SetInAir(bool air) { inAir = air; }
+	
+	public void SetCheckLanding(bool landing) { checkLanding = landing; }
 	
 	//
 	private void Awake() {
@@ -45,8 +48,14 @@ public class HeroCollisions : MonoBehaviour {
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision) {
-		inAir = false;
-		checkLanding = true;
+		Vector2 averageNormal = Vector2.zero;
+		foreach(ContactPoint2D point in collision.contacts) {
+			averageNormal += point.normal;
+		}
+		
+		averageNormal.Normalize();
+		if(averageNormal.y > groundTreshold) inAir = false;
+		
 		currentLandingTime = landingTime;
 		
 		float magnitude = collision.relativeVelocity.magnitude;
