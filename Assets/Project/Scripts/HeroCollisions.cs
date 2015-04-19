@@ -20,6 +20,7 @@ public class HeroCollisions : MonoBehaviour {
 	
 	//
 	public bool InAir() { return inAir; }
+	public void SetInAir(bool air) { inAir = air; }
 	
 	//
 	private void Awake() {
@@ -40,7 +41,6 @@ public class HeroCollisions : MonoBehaviour {
 	}
 	
 	private void OnCollisionExit(Collision collision) {
-		inAir = true;
 		currentLandingTime = landingTime;
 	}
 	
