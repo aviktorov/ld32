@@ -23,7 +23,7 @@ public class HeroAnimation : MonoBehaviour {
 		cachedAnimation.SetFloat("VelocityX",velocity.x);
 		cachedAnimation.SetFloat("VelocityY",velocity.y);
 		
-		cachedAnimation.SetBool("Grabbng",cachedHands.GetGrabbedObject() != null);
+		cachedAnimation.SetBool("Grabbing",cachedHands.GetGrabbedObject() != null);
 		cachedAnimation.SetBool("InAir",cachedCollision.InAir());
 	}
 }
