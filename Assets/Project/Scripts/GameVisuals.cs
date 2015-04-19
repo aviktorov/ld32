@@ -11,9 +11,6 @@ public class GameVisuals : MonoBehaviour {
 	
 	public AnimationCurve transitionCurve = AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f);
 	
-	public Transform hero1 = null;
-	public Transform hero2 = null;
-	
 	//
 	private GameState cachedState;
 	private Transform cachedCameraTransform;
@@ -28,28 +25,7 @@ public class GameVisuals : MonoBehaviour {
 		stageFrom = from;
 		stageTo = to;
 		currentTime = 0.0f;
-		
-		// set ui
-		UICanvasFader uiFrom = cachedState.GetStageFader(from);
-		UICanvasFader uiTo = cachedState.GetStageFader(to);
-		
-		if(uiFrom) uiFrom.alpha = 1.0f;
-		if(uiTo) uiTo.alpha = 0.0f;
-		
-		// set camera
-		Transform anchorFrom = cachedState.GetStageAnchor(from);
-		if(anchorFrom) cachedCameraTransform.position = anchorFrom.position;
-	}
-	
-	public void SetHeroTransition(Stage from,Stage to) {
 		currentHeroTime = 0.0f;
-		
-		// set heroes
-		Transform hero1From = cachedState.GetStageHero1Anchor(from);
-		Transform hero2From = cachedState.GetStageHero2Anchor(from);
-		
-		if(hero1From) hero1.position = hero1From.position;
-		if(hero2From) hero2.position = hero2From.position;
 	}
 	
 	//
@@ -82,11 +58,11 @@ public class GameVisuals : MonoBehaviour {
 			Transform hero2To = cachedState.GetStageHero2Anchor(stageTo);
 			
 			if(hero1From && hero1To) {
-				hero1.position = Vector3.Lerp(hero1From.position,hero1To.position,progressHero);
+				cachedState.hero1.position = Vector3.Lerp(hero1From.position,hero1To.position,progressHero);
 			}
 			
 			if(hero2From && hero2To) {
-				hero2.position = Vector3.Lerp(hero2From.position,hero2To.position,progressHero);
+				cachedState.hero2.position = Vector3.Lerp(hero2From.position,hero2To.position,progressHero);
 			}
 		}
 		

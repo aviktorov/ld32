@@ -115,5 +115,7 @@ public class GameState : MonoSingleton<GameState> {
 		if(uiArenaFader) uiArenaFader.alpha = 0.0f;
 		
 		cachedVisuals.SetTransition(stage,stage);
+		cachedHero1Input.SetGrabbed(stage == Stage.Menu);
+		cachedHero2Input.SetGrabbed(stage == Stage.Menu);
 	}
 }

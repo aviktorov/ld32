@@ -998,7 +998,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionTime: 3
   transitionHeroTime: 1
-  smoothness: .300000012
   transitionCurve:
     serializedVersion: 2
     m_Curve:

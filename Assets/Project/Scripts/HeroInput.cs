@@ -47,11 +47,6 @@ public class HeroInput : MonoBehaviour {
 		cachedHero = GetComponent<HeroStats>();
 		cachedTransform = GetComponent<Transform>();
 		cachedCollision = GetComponent<HeroCollisions>();
-	}
-	
-	private void Start() {
-		if(!Camera.main) Debug.LogError("No main camera on scene");
-		if(!cachedHands) Debug.LogError("Handless hero, yikes");
 		
 		isMoving = false;
 		isGrabbed = false;
