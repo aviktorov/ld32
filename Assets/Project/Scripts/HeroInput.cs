@@ -11,6 +11,7 @@ public class HeroInput : MonoBehaviour {
 	
 	public string grab = "Grab";
 	public string jump = "Jump";
+	public string block = "Block";
 	
 	[Header("Physics")]
 	public float moveVelocity = 10.0f;
@@ -28,11 +29,13 @@ public class HeroInput : MonoBehaviour {
 	
 	private bool isMoving;
 	private bool isGrabbed;
+	private bool isBlocking;
 	
 	//
 	public bool IsMoving() { return isMoving; }
-	
 	public bool IsGrabbed() { return isGrabbed; }
+	public bool IsBlocking() { return isBlocking; }
+	
 	public void SetGrabbed(bool grabbed) { isGrabbed = grabbed; }
 	
 	//
@@ -49,6 +52,8 @@ public class HeroInput : MonoBehaviour {
 		if(!cachedHands) Debug.LogError("Handless hero, yikes");
 		
 		isMoving = false;
+		isGrabbed = false;
+		isBlocking = false;
 	}
 	
 	//
@@ -73,6 +78,9 @@ public class HeroInput : MonoBehaviour {
 		
 		// orient
 		if(isMoving) cachedTransform.localScale = new Vector3(Mathf.Sign(input),1.0f,1.0f);
+		
+		// block
+		isBlocking = Input.GetButton(block);
 		
 		// jump
 		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {

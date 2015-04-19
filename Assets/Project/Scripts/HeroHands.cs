@@ -50,6 +50,10 @@ public class HeroHands : MonoBehaviour {
 		if(grabbedJoint) return;
 		
 		grabbedObject = detectedObject;
+		
+		HeroInput grabbedInput = grabbedObject.GetComponent<HeroInput>();
+		if(grabbedInput && grabbedInput.IsBlocking()) return;
+		
 		JamSuite.Physics2D.IgnoreCollision(grabbedObject.gameObject,cachedBody.gameObject,true);
 		
 		grabbedObject.transform.position = cachedTransform.position + Vector3.up * grabOffset;
