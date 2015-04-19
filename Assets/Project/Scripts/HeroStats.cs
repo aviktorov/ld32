@@ -15,6 +15,13 @@ public class HeroStats : MonoBehaviour {
 	public float staminaCooldown = 5.0f;
 	public float staminaLossMultiplier = 2.0f;
 	
+	[Header("Recovery")]
+	public AnimationCurve recoveryAnimation = AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f);
+	public float recoveryInterval = 3.0f;
+	public float recoveryAreaStart = 0.3f;
+	public float recoveryAreaEnd = 0.5f;
+	
+	
 	[Header("Visuals")]
 	public float stabilizationSmoothness = 5.0f;
 	
@@ -27,6 +34,7 @@ public class HeroStats : MonoBehaviour {
 	
 	//
 	private float currentCooldownTime;
+	private float currentRecoveryTime;
 	
 	private Rigidbody2D cachedBody;
 	private HeroHands cachedHands;
@@ -37,14 +45,27 @@ public class HeroStats : MonoBehaviour {
 	private Quaternion stableRotation;
 	
 	private bool stabilize;
-	private bool stunned;
+	private bool isStunned;
+	
+	//
+	public bool IsStunned() { return isStunned; }
+	
+	//
+	public float GetRecoveryProgress() {
+		return recoveryAnimation.Evaluate(Mathf.Clamp01(currentRecoveryTime / recoveryInterval));
+	}
+	
+	public bool CanRecover() {
+		float progress = GetRecoveryProgress();
+		return (progress > recoveryAreaStart) && (progress < recoveryAreaEnd);
+	}
 	
 	//
 	public void TakeHealth() {
-		if(!stunned) return;
+		if(!isStunned) return;
 		
 		health = Mathf.Max(0,health - 1);
-		stunned = false;
+		isStunned = false;
 	}
 	
 	public void TakeStamina(float amount) {
@@ -61,14 +82,15 @@ public class HeroStats : MonoBehaviour {
 	
 	public void PrepareForDrop() {
 		cachedCollision.SetCheckLanding(true);
-		stunned = true;
+		isStunned = true;
+		currentRecoveryTime = 0.0f;
 	}
 	
 	public void RestoreAfterLanding() {
 		cachedBody.fixedAngle = true;
 		cachedInput.SetGrabbed(false);
 		stabilize = true;
-		stunned = false;
+		isStunned = false;
 	}
 	
 	//
@@ -80,7 +102,7 @@ public class HeroStats : MonoBehaviour {
 		cachedTransform = GetComponent<Transform>();
 		
 		stabilize = true;
-		stunned = false;
+		isStunned = false;
 		stableRotation = Quaternion.LookRotation(Vector3.forward,Vector3.up);
 	}
 	
@@ -92,6 +114,12 @@ public class HeroStats : MonoBehaviour {
 	//
 	private void Update() {
 		
+		// recovery
+		if(isStunned) {
+			currentRecoveryTime = Mathf.Min(currentRecoveryTime + Time.deltaTime,recoveryInterval);
+		}
+		
+		// stabilization
 		if(stabilize) {
 			cachedTransform.rotation = Quaternion.Slerp(
 				cachedTransform.rotation,
