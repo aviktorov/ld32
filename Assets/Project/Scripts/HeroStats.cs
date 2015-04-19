@@ -46,6 +46,7 @@ public class HeroStats : MonoBehaviour {
 			body.constraints = RigidbodyConstraints.None;
 		}
 		
+		cachedTransform.rotation = Quaternion.LookRotation(Vector3.up,cachedTransform.forward);
 		stabilize = false;
 	}
 	

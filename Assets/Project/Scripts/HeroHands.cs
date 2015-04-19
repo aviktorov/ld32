@@ -47,12 +47,12 @@ public class HeroHands : MonoBehaviour {
 		JamSuite.Physics.IgnoreCollision(grabbedObject,cachedBody,true);
 		
 		grabbedObject.transform.position = cachedTransform.position + Vector3.up * grabOffset;
+		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
 		
 		grabbedJoint = gameObject.AddComponent<FixedJoint>();
 		grabbedJoint.breakForce = breakForce;
 		grabbedJoint.connectedBody = grabbedObject;
 		
-		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
 	}
 	
 	//
