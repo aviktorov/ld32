@@ -16,11 +16,16 @@ public class HeroDamageHandler : MonoBehaviour {
 	//
 	private float currentLandingTime;
 	private bool checkLanding;
+	private bool inAir;
+	
+	//
+	public bool InAir() { return inAir; }
 	
 	//
 	private void Awake() {
 		currentLandingTime = 0.0f;
 		checkLanding = false;
+		inAir = true;
 	}
 	
 	//
@@ -35,10 +40,12 @@ public class HeroDamageHandler : MonoBehaviour {
 	}
 	
 	private void OnCollisionExit(Collision collision) {
+		inAir = true;
 		currentLandingTime = landingTime;
 	}
 	
 	private void OnCollisionEnter(Collision collision) {
+		inAir = false;
 		checkLanding = true;
 		currentLandingTime = landingTime;
 		

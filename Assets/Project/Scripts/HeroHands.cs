@@ -19,9 +19,7 @@ public class HeroHands : MonoBehaviour {
 	private FixedJoint grabbedJoint;
 	
 	//
-	public Rigidbody GetGrabbedObject() {
-		return grabbedObject;
-	}
+	public Rigidbody GetGrabbedObject() { return grabbedObject; }
 	
 	public void Drop(float throwStrength = 0.0f) {
 		if(!grabbedObject) return;
