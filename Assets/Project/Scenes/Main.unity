@@ -758,9 +758,9 @@ Prefab:
       propertyPath: grab
       value: Player2Grab
       objectReference: {fileID: 0}
-    - target: {fileID: 11407818, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: grabOffset
-      value: 2
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: jump
+      value: Player2Jump
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
