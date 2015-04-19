@@ -87,72 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &2853260
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.1099999
-      objectReference: {fileID: 0}
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_Name
-      value: Hero1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsHorizontal
-      value: Player1LegsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsVertical
-      value: Player1LegsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsHorizontal
-      value: Player1HandsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsVertical
-      value: Player1HandsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: grab
-      value: Player1Grab
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &67728746
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +244,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 336826729}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &803334295
+--- !u!1001 &762249853
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -319,7 +253,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.42000008
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -347,31 +281,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Name
-      value: Hero2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsHorizontal
-      value: Player2LegsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: legsVertical
-      value: Player2LegsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsHorizontal
-      value: Player2HandsHorizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: handsVertical
-      value: Player2HandsVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: grab
-      value: Player2Grab
+      value: Hero1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}

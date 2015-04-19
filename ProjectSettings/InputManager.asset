@@ -6,7 +6,7 @@ InputManager:
   serializedVersion: 2
   m_Axes:
   - serializedVersion: 3
-    m_Name: Player1LegsHorizontal
+    m_Name: Player1Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -22,7 +22,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1LegsHorizontal
+    m_Name: Player1Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
@@ -38,7 +38,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1LegsVertical
+    m_Name: Player1Vertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -54,7 +54,7 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1LegsVertical
+    m_Name: Player1Vertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: down
@@ -68,38 +68,6 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
-  - serializedVersion: 3
-    m_Name: Player1HandsHorizontal
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 10
-    dead: .00499999989
-    sensitivity: 3
-    snap: 0
-    invert: 0
-    type: 2
-    axis: 3
-    joyNum: 1
-  - serializedVersion: 3
-    m_Name: Player1HandsVertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 10
-    dead: .00499999989
-    sensitivity: 3
-    snap: 0
-    invert: 1
-    type: 2
-    axis: 4
     joyNum: 1
   - serializedVersion: 3
     m_Name: Player1Grab
@@ -118,7 +86,7 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player2LegsHorizontal
+    m_Name: Player2Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -134,7 +102,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2LegsHorizontal
+    m_Name: Player2Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
@@ -150,7 +118,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2LegsVertical
+    m_Name: Player2Vertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -166,7 +134,7 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Player2LegsVertical
+    m_Name: Player2Vertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: down
@@ -180,38 +148,6 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 2
-  - serializedVersion: 3
-    m_Name: Player2HandsHorizontal
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 10
-    dead: .00499999989
-    sensitivity: 3
-    snap: 0
-    invert: 0
-    type: 2
-    axis: 3
-    joyNum: 2
-  - serializedVersion: 3
-    m_Name: Player2HandsVertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 10
-    dead: .00499999989
-    sensitivity: 3
-    snap: 0
-    invert: 1
-    type: 2
-    axis: 4
     joyNum: 2
   - serializedVersion: 3
     m_Name: Player2Grab
