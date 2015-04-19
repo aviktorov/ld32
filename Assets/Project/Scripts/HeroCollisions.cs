@@ -5,7 +5,7 @@ using JamSuite.Events;
 
 /*
  */
-public class HeroDamageHandler : MonoBehaviour {
+public class HeroCollisions : MonoBehaviour {
 	
 	//
 	public float damageVelocityThreshold = 10.0f;

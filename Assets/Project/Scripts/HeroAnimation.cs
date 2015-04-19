@@ -9,13 +9,13 @@ public class HeroAnimation : MonoBehaviour {
 	private Animator cachedAnimation;
 	private Rigidbody cachedBody;
 	private HeroHands cachedHands;
-	private HeroDamageHandler cachedCollision;
+	private HeroCollisions cachedCollision;
 	
 	private void Awake() {
 		cachedAnimation = GetComponent<Animator>();
 		cachedBody = GetComponent<Rigidbody>();
 		cachedHands = GetComponent<HeroHands>();
-		cachedCollision = GetComponent<HeroDamageHandler>();
+		cachedCollision = GetComponent<HeroCollisions>();
 	}
 	
 	private void Update () {
