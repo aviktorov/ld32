@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 896b856497187cc42a4ec415804955ce
-timeCreated: 1429432159
+timeCreated: 1429440832
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -27,6 +27,10 @@ TextureImporter:
     21300040: dance_04
     21300042: jump_down_04
     21300044: jump_down_05
+    21300046: idle_01
+    21300048: idle_02
+    21300050: idle_03
+    21300052: idle_04
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -301,6 +305,46 @@ TextureImporter:
         height: 32
       alignment: 7
       pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_01
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .4375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_02
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .4375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_03
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .4375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_04
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .4375, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
