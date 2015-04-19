@@ -52,7 +52,10 @@ public class HeroHands : MonoBehaviour {
 		grabbedObject = detectedObject;
 		
 		HeroInput grabbedInput = grabbedObject.GetComponent<HeroInput>();
-		if(grabbedInput && grabbedInput.IsBlocking()) return;
+		if(grabbedInput && grabbedInput.IsBlocking()) {
+			grabbedObject = null;
+			return;
+		}
 		
 		JamSuite.Physics2D.IgnoreCollision(grabbedObject.gameObject,cachedBody.gameObject,true);
 		

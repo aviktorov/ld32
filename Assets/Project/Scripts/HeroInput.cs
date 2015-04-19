@@ -89,7 +89,12 @@ public class HeroInput : MonoBehaviour {
 		}
 		
 		// grab
-		if(Input.GetButtonDown(grab)) cachedHands.Grab();
-		if(Input.GetButtonUp(grab)) cachedHands.Drop(throwStrength,throwVertical);
+		if(isBlocking) {
+			cachedHands.Drop();
+		}
+		else {
+			if(Input.GetButtonDown(grab)) cachedHands.Grab();
+			if(Input.GetButtonUp(grab)) cachedHands.Drop(throwStrength,throwVertical);
+		}
 	}
 }
