@@ -23,7 +23,6 @@ public class HeroInput : MonoBehaviour {
 	//
 	private Rigidbody2D cachedBody;
 	private HeroHands cachedHands;
-	private HeroStats cachedHero;
 	private HeroCollisions cachedCollision;
 	private Transform cachedTransform;
 	
@@ -42,7 +41,6 @@ public class HeroInput : MonoBehaviour {
 	private void Awake() {
 		cachedBody = GetComponent<Rigidbody2D>();
 		cachedHands = GetComponent<HeroHands>();
-		cachedHero = GetComponent<HeroStats>();
 		cachedTransform = GetComponent<Transform>();
 		cachedCollision = GetComponent<HeroCollisions>();
 	}
@@ -60,15 +58,7 @@ public class HeroInput : MonoBehaviour {
 	private void Update() {
 		if(cachedBody == null) return;
 		if(cachedHands == null) return;
-		
-		if(isGrabbed) {
-			HeroStats grabberHero = cachedHero.GetGrabberHero();
-			if(grabberHero && Input.GetButtonDown(grab)) {
-				grabberHero.TakeStamina(cachedHero.staminaDrainPerPress);
-			}
-			
-			return;
-		}
+		if(isGrabbed) return;
 		
 		// movement
 		float input = Input.GetAxis(moveHorizontal);
