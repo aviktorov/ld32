@@ -70,6 +70,8 @@ public class HeroStats : MonoBehaviour {
 	private void IgnoreCollisions(GameObject object1,GameObject object2,bool ignore = true) {
 		if(object1 == object2) return;
 		
+		Collider[] colliders1 = object1.GetComponentsInChildren<Collider>();
+		Collider[] colliders2 = object2.GetComponentsInChildren<Collider>();
 		
 		foreach(Collider collider1 in colliders1) {
 			foreach(Collider collider2 in colliders2) {
