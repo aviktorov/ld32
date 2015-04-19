@@ -23,7 +23,7 @@ public class HeroStats : MonoBehaviour {
 	private float stamina;
 	private float currentCooldownTime;
 	
-	private Rigidbody cachedBody;
+	private Rigidbody2D cachedBody;
 	private HeroHands cachedHands;
 	private HeroInput cachedInput;
 	private Transform cachedTransform;
@@ -43,16 +43,14 @@ public class HeroStats : MonoBehaviour {
 	
 	//
 	public void PrepareForGrab() {
-		cachedBody.constraints = RigidbodyConstraints.None;
-		
+		cachedBody.fixedAngle = false;
 		cachedInput.enabled = false;
-		cachedTransform.rotation = Quaternion.LookRotation(Vector3.up,cachedTransform.forward);
+		cachedTransform.rotation = Quaternion.LookRotation(cachedTransform.forward,-Vector3.up);
 		stabilize = false;
 	}
 	
 	public void RestoreAfterLanding() {
-		cachedBody.constraints = RigidbodyConstraints.FreezeRotation;
-		
+		cachedBody.fixedAngle = true;
 		cachedInput.enabled = true;
 		stabilize = true;
 	}
@@ -61,7 +59,7 @@ public class HeroStats : MonoBehaviour {
 	private void Awake() {
 		cachedHands = GetComponent<HeroHands>();
 		cachedInput = GetComponent<HeroInput>();
-		cachedBody = GetComponent<Rigidbody>();
+		cachedBody = GetComponent<Rigidbody2D>();
 		cachedTransform = GetComponent<Transform>();
 		
 		stabilize = true;
@@ -88,7 +86,7 @@ public class HeroStats : MonoBehaviour {
 		currentCooldownTime = Mathf.Max(0,currentCooldownTime - Time.deltaTime);
 		
 		// take stamina constantly if we're carrying an object in our hands
-		Rigidbody obj = cachedHands.GetGrabbedObject();
+		Rigidbody2D obj = cachedHands.GetGrabbedObject();
 		
 		if(obj) {
 			currentCooldownTime = staminaCooldown;

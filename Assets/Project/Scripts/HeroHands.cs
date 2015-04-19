@@ -10,16 +10,16 @@ public class HeroHands : MonoBehaviour {
 	public float grabOffset = 1.5f;
 	
 	//
-	private Rigidbody cachedBody;
+	private Rigidbody2D cachedBody;
 	private Transform cachedTransform;
 	
-	private Rigidbody detectedObject;
-	private Rigidbody grabbedObject;
+	private Rigidbody2D detectedObject;
+	private Rigidbody2D grabbedObject;
+	private HingeJoint2D grabbedJoint;
 	private float grabbedMass;
-	private FixedJoint grabbedJoint;
 	
 	//
-	public Rigidbody GetGrabbedObject() { return grabbedObject; }
+	public Rigidbody2D GetGrabbedObject() { return grabbedObject; }
 	
 	public void Drop(float throwStrength = 0.0f) {
 		if(!grabbedObject) return;
@@ -29,24 +29,27 @@ public class HeroHands : MonoBehaviour {
 			grabbedJoint = null;
 		}
 		
+		grabbedObject.velocity = Vector2.zero;
+		grabbedObject.angularVelocity = 0.0f;
 		
-		grabbedObject.velocity = Vector3.zero;
-		grabbedObject.angularVelocity = Vector3.zero;
+		JamSuite.Physics2D.IgnoreCollision(grabbedObject,cachedBody,false);
 		
-		JamSuite.Physics.IgnoreCollision(grabbedObject,cachedBody,false);
-		if(throwStrength > 0.0f) grabbedObject.AddForce(cachedTransform.right * throwStrength,ForceMode.Impulse);
+		if(throwStrength > 0.0f) {
+			Vector2 throwDirection = new Vector2(cachedTransform.localScale.x,0.0f);
+			grabbedObject.AddForce(throwDirection * throwStrength,ForceMode2D.Impulse);
+		}
 		
 		grabbedObject.mass = grabbedMass;
 		grabbedObject = null;
 	}
 	
-	public void Grab(float breakForce = Mathf.Infinity) {
+	public void Grab() {
 		if(detectedObject == null) return;
 		if(grabbedObject) return;
 		if(grabbedJoint) return;
 		
 		grabbedObject = detectedObject;
-		JamSuite.Physics.IgnoreCollision(grabbedObject,cachedBody,true);
+		JamSuite.Physics2D.IgnoreCollision(grabbedObject,cachedBody,true);
 		
 		grabbedObject.transform.position = cachedTransform.position + Vector3.up * grabOffset;
 		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
@@ -54,14 +57,16 @@ public class HeroHands : MonoBehaviour {
 		grabbedMass = grabbedObject.mass;
 		grabbedObject.mass = grabMass;
 		
-		grabbedJoint = gameObject.AddComponent<FixedJoint>();
-		grabbedJoint.breakForce = breakForce;
+		grabbedJoint = gameObject.AddComponent<HingeJoint2D>();
+		grabbedJoint.anchor = new Vector2(0.0f,grabOffset);
 		grabbedJoint.connectedBody = grabbedObject;
+		grabbedJoint.useLimits = true;
+		grabbedJoint.limits = new JointAngleLimits2D() { min = 0.0f, max = 0.0f };
 	}
 	
 	//
 	private void Awake() {
-		cachedBody = GetComponent<Rigidbody>();
+		cachedBody = GetComponent<Rigidbody2D>();
 		cachedTransform = GetComponent<Transform>();
 		
 		grabbedObject = null;
@@ -70,24 +75,15 @@ public class HeroHands : MonoBehaviour {
 	}
 	
 	//
-	private void Update() {
-		
-		// stop holding if our joint was broken
-		if(grabbedObject && !grabbedJoint) {
-			Drop();
-		}
-	}
-	
-	//
-	private void OnTriggerEnter(Collider collider) {
-		Rigidbody body = collider.attachedRigidbody;
+	private void OnTriggerEnter2D(Collider2D collider) {
+		Rigidbody2D body = collider.attachedRigidbody;
 		if(body == null) return;
 		if(body.isKinematic) return;
 		
 		detectedObject = body;
 	}
 	
-	private void OnTriggerExit(Collider collider) {
+	private void OnTriggerExit2D(Collider2D collider) {
 		detectedObject = null;
 	}
 }

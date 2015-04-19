@@ -30,7 +30,7 @@ public class HeroCollisions : MonoBehaviour {
 	}
 	
 	//
-	private void OnCollisionStay(Collision collision) {
+	private void OnCollisionStay2D(Collision2D collision) {
 		if(!checkLanding) return;
 		
 		currentLandingTime -= Time.fixedDeltaTime;
@@ -40,11 +40,11 @@ public class HeroCollisions : MonoBehaviour {
 		}
 	}
 	
-	private void OnCollisionExit(Collision collision) {
+	private void OnCollisionExit2D(Collision2D collision) {
 		currentLandingTime = landingTime;
 	}
 	
-	private void OnCollisionEnter(Collision collision) {
+	private void OnCollisionEnter2D(Collision2D collision) {
 		inAir = false;
 		checkLanding = true;
 		currentLandingTime = landingTime;

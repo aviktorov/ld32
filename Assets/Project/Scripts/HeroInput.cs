@@ -19,18 +19,16 @@ public class HeroInput : MonoBehaviour {
 	public float jumpVelocity = 2.0f;
 	
 	public float throwStrength = 10.0f;
-	public float throwBreakForce = 10.0f;
 	
 	//
-	private Rigidbody cachedBody;
+	private Rigidbody2D cachedBody;
 	private HeroHands cachedHands;
 	private HeroCollisions cachedCollision;
-	private Transform cachedCameraTransform;
 	private Transform cachedTransform;
 	
 	//
 	private void Awake() {
-		cachedBody = GetComponent<Rigidbody>();
+		cachedBody = GetComponent<Rigidbody2D>();
 		cachedHands = GetComponent<HeroHands>();
 		cachedTransform = GetComponent<Transform>();
 		cachedCollision = GetComponent<HeroCollisions>();
@@ -39,8 +37,6 @@ public class HeroInput : MonoBehaviour {
 	private void Start() {
 		if(!Camera.main) Debug.LogError("No main camera on scene");
 		if(!cachedHands) Debug.LogError("Handless hero, yikes");
-		
-		cachedCameraTransform = Camera.main.GetComponent<Transform>();
 	}
 	
 	//
@@ -49,19 +45,18 @@ public class HeroInput : MonoBehaviour {
 		if(cachedHands == null) return;
 		
 		// movement
-		Vector2 input = new Vector2(Input.GetAxis(moveHorizontal),Input.GetAxis(moveVertical));
+		Vector2 input = new Vector2(Input.GetAxis(moveHorizontal),0.0f);
 		
-		Vector3 movement = cachedCameraTransform.right * input.x + cachedCameraTransform.forward * input.y;
+		Vector2 movement = input;
 		if(movement.sqrMagnitude > 1.0f) movement.Normalize();
 		
-		Vector3 newVelocity = cachedBody.velocity + movement * acceleration * Time.deltaTime;
-		newVelocity.y = 0.0f;
+		Vector2 newVelocity = cachedBody.velocity + movement * acceleration * Time.deltaTime;
+		newVelocity.x = Mathf.Clamp(newVelocity.x,-maxVelocity,maxVelocity);
 		
-		if(newVelocity.sqrMagnitude > maxVelocity * maxVelocity) newVelocity = newVelocity.normalized * maxVelocity;
-		cachedBody.velocity = newVelocity.WithY(cachedBody.velocity.y);
+		cachedBody.velocity = newVelocity;
 		
 		// orient
-		if(input.sqrMagnitude > 0.0f) cachedTransform.rotation = Quaternion.LookRotation(new Vector3(-movement.z,0.0f,movement.x).normalized,Vector3.up);
+		if(input.sqrMagnitude > 0.0f) cachedTransform.localScale = new Vector3(Mathf.Sign(input.x),1.0f,1.0f);
 		
 		// jump
 		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {
@@ -70,7 +65,7 @@ public class HeroInput : MonoBehaviour {
 		}
 		
 		// grab
-		if(Input.GetButtonDown(grab)) cachedHands.Grab(throwBreakForce);
+		if(Input.GetButtonDown(grab)) cachedHands.Grab();
 		if(Input.GetButtonUp(grab)) cachedHands.Drop(throwStrength);
 	}
 }

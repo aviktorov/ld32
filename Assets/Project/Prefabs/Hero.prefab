@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443394}
-  - 65: {fileID: 6521422}
+  - 61: {fileID: 6112132}
   m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
@@ -24,9 +24,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409100}
-  - 54: {fileID: 5433110}
-  - 65: {fileID: 6518662}
-  - 136: {fileID: 13633240}
   - 114: {fileID: 11421140}
   - 114: {fileID: 11408556}
   - 114: {fileID: 11496032}
@@ -34,6 +31,8 @@ GameObject:
   - 114: {fileID: 11436610}
   - 212: {fileID: 21216830}
   - 95: {fileID: 9577406}
+  - 50: {fileID: 5019238}
+  - 61: {fileID: 6183458}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -66,45 +65,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 409100}
   m_RootOrder: 0
---- !u!54 &5433110
-Rigidbody:
+--- !u!50 &5019238
+Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195524}
-  serializedVersion: 2
   m_Mass: 20
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_GravityScale: 1
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!65 &6518662
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195524}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.27999997, y: 1, z: .200000003}
-  m_Center: {x: 0, y: .5, z: 0}
---- !u!65 &6521422
-BoxCollider:
+--- !u!61 &6112132
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157330}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: .0345702171, y: .0691404641}
   serializedVersion: 2
-  m_Size: {x: .769999981, y: 1.08000004, z: 1.24000001}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .464162111, y: .671583354}
+--- !u!61 &6183458
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195524}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: .449999988}
+  serializedVersion: 2
+  m_Size: {x: 1.27999997, y: .899999976}
 --- !u!95 &9577406
 Animator:
   serializedVersion: 3
@@ -197,11 +198,10 @@ MonoBehaviour:
   moveVertical: Player1Vertical
   grab: Player1Grab
   jump: Player1Jump
-  maxVelocity: 2
+  maxVelocity: 4
   acceleration: 10
   jumpVelocity: 6
   throwStrength: 10
-  throwBreakForce: 5000
 --- !u!114 &11436610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,19 +230,6 @@ MonoBehaviour:
   staminaCooldown: 5
   staminaLossMultiplier: 2
   stabilizationSmoothness: 5
---- !u!136 &13633240
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195524}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .519999981
-  m_Height: 1.13
-  m_Direction: 1
-  m_Center: {x: 0, y: .50999999, z: 0}
 --- !u!212 &21216830
 SpriteRenderer:
   m_ObjectHideFlags: 1
