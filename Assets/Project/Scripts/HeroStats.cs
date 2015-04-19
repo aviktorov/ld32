@@ -23,8 +23,9 @@ public class HeroStats : MonoBehaviour {
 	private float stamina;
 	private float currentCooldownTime;
 	
-	private Rigidbody[] cachedBodies;
+	private Rigidbody cachedBody;
 	private HeroHands cachedHands;
+	private HeroInput cachedInput;
 	private Transform cachedTransform;
 	
 	private Quaternion stableRotation;
@@ -42,26 +43,25 @@ public class HeroStats : MonoBehaviour {
 	
 	//
 	public void PrepareForGrab() {
-		foreach(Rigidbody body in cachedBodies) {
-			body.constraints = RigidbodyConstraints.None;
-		}
+		cachedBody.constraints = RigidbodyConstraints.None;
 		
+		cachedInput.enabled = false;
 		cachedTransform.rotation = Quaternion.LookRotation(Vector3.up,cachedTransform.forward);
 		stabilize = false;
 	}
 	
 	public void RestoreAfterLanding() {
-		foreach(Rigidbody body in cachedBodies) {
-			body.constraints = RigidbodyConstraints.FreezeRotation;
-		}
+		cachedBody.constraints = RigidbodyConstraints.FreezeRotation;
 		
+		cachedInput.enabled = true;
 		stabilize = true;
 	}
 	
 	//
 	private void Awake() {
-		cachedHands = GetComponentInChildren<HeroHands>();
-		cachedBodies = GetComponentsInChildren<Rigidbody>();
+		cachedHands = GetComponent<HeroHands>();
+		cachedInput = GetComponent<HeroInput>();
+		cachedBody = GetComponent<Rigidbody>();
 		cachedTransform = GetComponent<Transform>();
 		
 		stabilize = true;
