@@ -16,6 +16,7 @@ public class HeroInput : MonoBehaviour {
 	[Header("Physics")]
 	public float moveVelocity = 10.0f;
 	public float jumpVelocity = 2.0f;
+	public int maxJumps = 2;
 	
 	public float throwStrength = 10.0f;
 	public float throwVertical = 0.2f;
@@ -30,6 +31,7 @@ public class HeroInput : MonoBehaviour {
 	private bool isMoving;
 	private bool isGrabbed;
 	private bool isBlocking;
+	private int currentJumps;
 	
 	//
 	public bool IsMoving() { return isMoving; }
@@ -84,6 +86,12 @@ public class HeroInput : MonoBehaviour {
 		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {
 			cachedBody.velocity = cachedBody.velocity.WithY(jumpVelocity);
 			cachedCollision.SetInAir(true);
+			currentJumps = 0;
+		}
+		
+		if(Input.GetButtonDown(jump) && cachedCollision.InAir() && (currentJumps < maxJumps)) {
+			cachedBody.velocity = cachedBody.velocity.WithY(jumpVelocity);
+			currentJumps++;
 		}
 		
 		// grab
