@@ -14,6 +14,7 @@ public class HeroStats : MonoBehaviour {
 	public float staminaRegainSpeed = 10.0f;
 	public float staminaCooldown = 5.0f;
 	public float staminaLossMultiplier = 2.0f;
+	public float staminaDrainPerPress = 10.0f;
 	
 	[Header("Visuals")]
 	public float stabilizationSmoothness = 5.0f;
@@ -35,10 +36,17 @@ public class HeroStats : MonoBehaviour {
 	private Transform cachedTransform;
 	
 	private Quaternion stableRotation;
+	private GameObject grabber;
 	
 	private bool stabilize;
 	
 	//
+	public HeroStats GetGrabberHero() {
+		if(!grabber) return null;
+		
+		return grabber.GetComponent<HeroStats>();
+	}
+	
 	public void TakeHealth(float amount) {
 		health = Mathf.Max(0,health - Mathf.CeilToInt(amount));
 	}
@@ -48,14 +56,16 @@ public class HeroStats : MonoBehaviour {
 	}
 	
 	//
-	public void PrepareForGrab() {
+	public void PrepareForGrab(GameObject sender) {
+		grabber = sender;
 		cachedBody.fixedAngle = false;
 		cachedInput.SetGrabbed(true);
 		cachedTransform.rotation = Quaternion.LookRotation(cachedTransform.forward,-Vector3.up);
 		stabilize = false;
 	}
 	
-	public void PrepareForDrop() {
+	public void PrepareForDrop(GameObject sender) {
+		grabber = null;
 		cachedCollision.SetCheckLanding(true);
 	}
 	
