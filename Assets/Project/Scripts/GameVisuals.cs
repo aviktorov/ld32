@@ -7,7 +7,12 @@ public class GameVisuals : MonoBehaviour {
 	
 	//
 	public float transitionTime = 3.0f;
+	public float transitionHeroTime = 1.0f;
+	
 	public AnimationCurve transitionCurve = AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f);
+	
+	public Transform hero1 = null;
+	public Transform hero2 = null;
 	
 	//
 	private GameState cachedState;
@@ -16,6 +21,7 @@ public class GameVisuals : MonoBehaviour {
 	private Stage stageTo;
 	
 	private float currentTime;
+	private float currentHeroTime;
 	
 	//
 	public void SetTransition(Stage from,Stage to) {
@@ -24,15 +30,26 @@ public class GameVisuals : MonoBehaviour {
 		currentTime = 0.0f;
 		
 		// set ui
-		UICanvasFader uiFrom = cachedState.GetStageFader(stageFrom);
-		UICanvasFader uiTo = cachedState.GetStageFader(stageTo);
+		UICanvasFader uiFrom = cachedState.GetStageFader(from);
+		UICanvasFader uiTo = cachedState.GetStageFader(to);
 		
 		if(uiFrom) uiFrom.alpha = 1.0f;
 		if(uiTo) uiTo.alpha = 0.0f;
 		
 		// set camera
-		Transform anchorFrom = cachedState.GetStageAnchor(stageFrom);
-		cachedCameraTransform.position = anchorFrom.position;
+		Transform anchorFrom = cachedState.GetStageAnchor(from);
+		if(anchorFrom) cachedCameraTransform.position = anchorFrom.position;
+	}
+	
+	public void SetHeroTransition(Stage from,Stage to) {
+		currentHeroTime = 0.0f;
+		
+		// set heroes
+		Transform hero1From = cachedState.GetStageHero1Anchor(from);
+		Transform hero2From = cachedState.GetStageHero2Anchor(from);
+		
+		if(hero1From) hero1.position = hero1From.position;
+		if(hero2From) hero2.position = hero2From.position;
 	}
 	
 	//
@@ -51,19 +68,44 @@ public class GameVisuals : MonoBehaviour {
 		
 		// animate time
 		currentTime = Mathf.Min(currentTime + Time.deltaTime,transitionTime);
-		float k = transitionCurve.Evaluate(Mathf.Clamp01(currentTime / transitionTime));
+		float progress = transitionCurve.Evaluate(Mathf.Clamp01(currentTime / transitionTime));
 		
-		// animate ui
-		UICanvasFader uiFrom = cachedState.GetStageFader(stageFrom);
-		UICanvasFader uiTo = cachedState.GetStageFader(stageTo);
+		currentHeroTime = Mathf.Min(currentHeroTime + Time.deltaTime,transitionHeroTime);
+		float progressHero = transitionCurve.Evaluate(Mathf.Clamp01(currentHeroTime / transitionHeroTime));
 		
-		if(uiFrom) uiFrom.alpha = 1.0f - k;
-		if(uiTo) uiTo.alpha = k;
+		// animate heroes
+		if(Mathf.Abs(currentHeroTime - transitionHeroTime) > Mathf.Epsilon) {
+			Transform hero1From = cachedState.GetStageHero1Anchor(stageFrom);
+			Transform hero1To = cachedState.GetStageHero1Anchor(stageTo);
+			
+			Transform hero2From = cachedState.GetStageHero2Anchor(stageFrom);
+			Transform hero2To = cachedState.GetStageHero2Anchor(stageTo);
+			
+			if(hero1From && hero1To) {
+				hero1.position = Vector3.Lerp(hero1From.position,hero1To.position,progressHero);
+			}
+			
+			if(hero2From && hero2To) {
+				hero2.position = Vector3.Lerp(hero2From.position,hero2To.position,progressHero);
+			}
+		}
 		
-		// animate camera
-		Transform anchorFrom = cachedState.GetStageAnchor(stageFrom);
-		Transform anchorTo = cachedState.GetStageAnchor(stageTo);
-		
-		cachedCameraTransform.position = Vector3.Lerp(anchorFrom.position,anchorTo.position,k);
+		if(Mathf.Abs(currentTime - transitionTime) > Mathf.Epsilon) {
+			
+			// animate ui
+			UICanvasFader uiFrom = cachedState.GetStageFader(stageFrom);
+			UICanvasFader uiTo = cachedState.GetStageFader(stageTo);
+			
+			if(uiFrom) uiFrom.alpha = 1.0f - progress;
+			if(uiTo) uiTo.alpha = progress;
+			
+			// animate camera
+			Transform anchorFrom = cachedState.GetStageAnchor(stageFrom);
+			Transform anchorTo = cachedState.GetStageAnchor(stageTo);
+			
+			if(anchorFrom && anchorTo) {
+				cachedCameraTransform.position = Vector3.Lerp(anchorFrom.position,anchorTo.position,progress);
+			}
+		}
 	}
 }

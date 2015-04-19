@@ -288,6 +288,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1930573989}
+  - {fileID: 1786740150}
+  - {fileID: 791752684}
   - {fileID: 1635027014}
   - {fileID: 469243504}
   - {fileID: 1752492108}
@@ -397,7 +399,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83948797}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!212 &131062240
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -553,7 +555,7 @@ Transform:
   m_LocalScale: {x: 1, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 1901372460}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!61 &197001220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -975,6 +977,10 @@ MonoBehaviour:
   stage: 0
   menuAnchor: {fileID: 189601291}
   arenaAnchor: {fileID: 1930573989}
+  hero1AnchorMenu: {fileID: 1314364794}
+  hero2AnchorMenu: {fileID: 2031731792}
+  hero1AnchorArena: {fileID: 1786740150}
+  hero2AnchorArena: {fileID: 791752684}
   uiArenaFader: {fileID: 596719053}
   uiMenuFader: {fileID: 1129146506}
 --- !u!114 &328037263
@@ -989,6 +995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionTime: 3
+  transitionHeroTime: 1
   transitionCurve:
     serializedVersion: 2
     m_Curve:
@@ -1009,6 +1016,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  hero1: {fileID: 761954674}
+  hero2: {fileID: 329739642}
 --- !u!4 &329739642 stripped
 Transform:
   m_PrefabParentObject: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
@@ -1145,7 +1154,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83948797}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!212 &422540942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1250,7 +1259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 83948797}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!61 &469243505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1357,7 +1366,7 @@ Transform:
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83948797}
-  m_RootOrder: 7
+  m_RootOrder: 9
 --- !u!1001 &504889569
 Prefab:
   m_ObjectHideFlags: 0
@@ -1493,7 +1502,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1901372460}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!212 &530861789
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2128,6 +2137,33 @@ CanvasRenderer:
 Transform:
   m_PrefabParentObject: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
   m_PrefabInternal: {fileID: 504889569}
+--- !u!1 &791752683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 791752684}
+  m_Layer: 0
+  m_Name: '@Hero2AnchorArena'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &791752684
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 791752683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 3.48000002, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 83948797}
+  m_RootOrder: 2
 --- !u!1 &861155193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,7 +2231,7 @@ Transform:
   m_LocalScale: {x: 1, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 1901372460}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1 &923715235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2418,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1901372460}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!212 &960870769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2511,7 +2547,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83948797}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!212 &983106552
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2885,7 +2921,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1901372460}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!212 &1294091022
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3020,6 +3056,33 @@ Transform:
   - {fileID: 1072019182}
   m_Father: {fileID: 328037261}
   m_RootOrder: 0
+--- !u!1 &1314364793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1314364794}
+  m_Layer: 0
+  m_Name: '@Hero1AnchorMenu'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1314364794
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314364793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7, y: -3, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1901372460}
+  m_RootOrder: 1
 --- !u!114 &1316891112 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd,
@@ -3509,7 +3572,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1901372460}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!212 &1595904568
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3658,7 +3721,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83948797}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!212 &1635027015
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3719,7 +3782,7 @@ Transform:
   m_LocalScale: {x: 1, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 83948797}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!61 &1752492109
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3825,6 +3888,33 @@ RectTransform:
   m_AnchoredPosition: {x: -1, y: -1}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &1786740149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1786740150}
+  m_Layer: 0
+  m_Name: '@Hero1AnchorArena'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1786740150
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786740149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7, y: 3.48000002, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 83948797}
+  m_RootOrder: 1
 --- !u!1 &1794724570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,6 +4141,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 189601291}
+  - {fileID: 1314364794}
+  - {fileID: 2031731792}
   - {fileID: 960870768}
   - {fileID: 197001219}
   - {fileID: 861155196}
@@ -4147,3 +4239,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 83948797}
   m_RootOrder: 0
+--- !u!1 &2031731791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2031731792}
+  m_Layer: 0
+  m_Name: '@Hero2AnchorMenu'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2031731792
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2031731791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: -3, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1901372460}
+  m_RootOrder: 2
