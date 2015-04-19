@@ -8,6 +8,7 @@ public class HeroHands : MonoBehaviour {
 	//
 	public float grabMass = 1.0f;
 	public float grabOffset = 1.5f;
+	public float waitPhysics = 1.0f;
 	
 	//
 	private Rigidbody2D cachedBody;
@@ -32,7 +33,8 @@ public class HeroHands : MonoBehaviour {
 		grabbedObject.velocity = Vector2.zero;
 		grabbedObject.angularVelocity = 0.0f;
 		
-		JamSuite.Physics2D.IgnoreCollision(grabbedObject.gameObject,cachedBody.gameObject,false);
+		StartCoroutine(WaitAndRestorePhysics(grabbedObject.gameObject,cachedBody.gameObject));
+		
 		if(throwStrength > 0.0f) {
 			Vector2 throwDirection = new Vector2(cachedTransform.localScale.x,throwVertical);
 			grabbedObject.AddForce(throwDirection.normalized * throwStrength,ForceMode2D.Impulse);
@@ -70,6 +72,13 @@ public class HeroHands : MonoBehaviour {
 		grabbedJoint.connectedBody = grabbedObject;
 		grabbedJoint.useLimits = true;
 		grabbedJoint.limits = new JointAngleLimits2D() { min = 0.0f, max = 0.0f };
+	}
+	
+	
+	//
+	private IEnumerator WaitAndRestorePhysics(GameObject first,GameObject second) {
+		yield return new WaitForSeconds(waitPhysics);
+		JamSuite.Physics2D.IgnoreCollision(first,second,false);
 	}
 	
 	//

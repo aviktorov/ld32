@@ -22,8 +22,9 @@ public class GameState : MonoSingleton<GameState> {
 	public Transform arenaAnchor = null;
 	
 	public Transform hero1AnchorMenu = null;
-	public Transform hero2AnchorMenu = null;
 	public Transform hero1AnchorArena = null;
+	
+	public Transform hero2AnchorMenu = null;
 	public Transform hero2AnchorArena = null;
 	
 	[Header("UI")]
