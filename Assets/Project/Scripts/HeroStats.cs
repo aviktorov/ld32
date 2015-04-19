@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
+
 using System.Collections;
 
 /*
@@ -21,9 +23,11 @@ public class HeroStats : MonoBehaviour {
 	public float recoveryAreaStart = 0.3f;
 	public float recoveryAreaEnd = 0.5f;
 	
-	
 	[Header("Visuals")]
 	public float stabilizationSmoothness = 5.0f;
+	
+	[Header("Events")]
+	public UnityEvent onDeath = null;
 	
 	//
 	[System.NonSerialized]
@@ -62,10 +66,14 @@ public class HeroStats : MonoBehaviour {
 	
 	//
 	public void TakeHealth() {
+		if(health == 0) return;
 		if(!isStunned) return;
 		
 		health = Mathf.Max(0,health - 1);
 		isStunned = false;
+		
+		if(health == 0) onDeath.Invoke();
+		
 	}
 	
 	public void TakeStamina(float amount) {
@@ -113,6 +121,8 @@ public class HeroStats : MonoBehaviour {
 	
 	//
 	private void Update() {
+		
+		if(health == 0) return;
 		
 		// recovery
 		if(isStunned) {
