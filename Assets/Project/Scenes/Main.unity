@@ -307,35 +307,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Name
       value: Hero2
       objectReference: {fileID: 0}
-    - target: {fileID: 5019238, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_FixedAngle
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: moveHorizontal
-      value: Player2Horizontal
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: moveVertical
-      value: Player2Vertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: grab
-      value: Player2Grab
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: jump
-      value: Player2Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: maxVelocity
-      value: 4
+      propertyPath: moveVelocity
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
@@ -377,11 +357,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Name
       value: Hero1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: moveHorizontal
+      value: Player1Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: moveVertical
+      value: Player1Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: grab
+      value: Player1Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: jump
+      value: Player1Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421140, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: moveVelocity
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
@@ -606,23 +606,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: 896b856497187cc42a4ec415804955ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &1864804250 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157330, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-  m_PrefabInternal: {fileID: 676021129}
---- !u!61 &1864804251
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1864804250}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: .0345702171, y: .0691404641}
-  serializedVersion: 2
-  m_Size: {x: .464162111, y: .671583354}
 --- !u!1 &2020402034
 GameObject:
   m_ObjectHideFlags: 0

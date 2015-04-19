@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 443394}
   - 61: {fileID: 6112132}
+  - 61: {fileID: 6145406}
   m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
@@ -93,6 +94,19 @@ BoxCollider2D:
   m_Offset: {x: .0345702171, y: .0691404641}
   serializedVersion: 2
   m_Size: {x: .464162111, y: .671583354}
+--- !u!61 &6145406
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157330}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: .0345702171, y: .0691404641}
+  serializedVersion: 2
+  m_Size: {x: .464162111, y: .671583354}
 --- !u!61 &6183458
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -148,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageVelocityThreshold: 10
-  landingTime: 2
+  landingTime: .100000001
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -194,10 +208,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfaf8310e415fe48b1bd38deaebe1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveHorizontal: Player1Horizontal
-  moveVertical: Player1Vertical
-  grab: Player1Grab
-  jump: Player1Jump
+  moveHorizontal: Player2Horizontal
+  moveVertical: Player2Vertical
+  grab: Player2Grab
+  jump: Player2Jump
   maxVelocity: 4
   acceleration: 10
   jumpVelocity: 6

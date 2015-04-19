@@ -38,38 +38,6 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1Vertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 100
-    dead: .00499999989
-    sensitivity: 1
-    snap: 1
-    invert: 1
-    type: 2
-    axis: 1
-    joyNum: 1
-  - serializedVersion: 3
-    m_Name: Player1Vertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
-    altNegativeButton: s
-    altPositiveButton: w
-    gravity: 10
-    dead: .00499999989
-    sensitivity: 3
-    snap: 1
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 1
-  - serializedVersion: 3
     m_Name: Player1Grab
     descriptiveName: 
     descriptiveNegativeName: 
@@ -129,38 +97,6 @@ InputManager:
     dead: .00499999989
     sensitivity: 3
     snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 2
-  - serializedVersion: 3
-    m_Name: Player2Vertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 100
-    dead: .00499999989
-    sensitivity: 1
-    snap: 1
-    invert: 1
-    type: 2
-    axis: 1
-    joyNum: 2
-  - serializedVersion: 3
-    m_Name: Player2Vertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
-    altNegativeButton: s
-    altPositiveButton: w
-    gravity: 10
-    dead: .00499999989
-    sensitivity: 3
-    snap: 1
     invert: 0
     type: 0
     axis: 0

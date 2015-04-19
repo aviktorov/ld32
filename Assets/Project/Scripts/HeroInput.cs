@@ -8,14 +8,12 @@ public class HeroInput : MonoBehaviour {
 	//
 	[Header("Input")]
 	public string moveHorizontal = "Horizontal";
-	public string moveVertical = "Vertical";
 	
 	public string grab = "Grab";
 	public string jump = "Jump";
 	
 	[Header("Physics")]
-	public float maxVelocity = 10.0f;
-	public float acceleration = 10.0f;
+	public float moveVelocity = 10.0f;
 	public float jumpVelocity = 2.0f;
 	
 	public float throwStrength = 10.0f;
@@ -45,18 +43,11 @@ public class HeroInput : MonoBehaviour {
 		if(cachedHands == null) return;
 		
 		// movement
-		Vector2 input = new Vector2(Input.GetAxis(moveHorizontal),0.0f);
-		
-		Vector2 movement = input;
-		if(movement.sqrMagnitude > 1.0f) movement.Normalize();
-		
-		Vector2 newVelocity = cachedBody.velocity + movement * acceleration * Time.deltaTime;
-		newVelocity.x = Mathf.Clamp(newVelocity.x,-maxVelocity,maxVelocity);
-		
-		cachedBody.velocity = newVelocity;
+		float input = Input.GetAxis(moveHorizontal);
+		cachedBody.velocity = new Vector2(input * moveVelocity,cachedBody.velocity.y);
 		
 		// orient
-		if(input.sqrMagnitude > 0.0f) cachedTransform.localScale = new Vector3(Mathf.Sign(input.x),1.0f,1.0f);
+		if(Mathf.Abs(input) > 0.0f) cachedTransform.localScale = new Vector3(Mathf.Sign(input),1.0f,1.0f);
 		
 		// jump
 		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {
