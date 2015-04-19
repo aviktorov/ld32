@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public enum Stage {
@@ -28,6 +29,8 @@ public class GameState : MonoSingleton<GameState> {
 	[Header("UI")]
 	public UICanvasFader uiArenaFader = null;
 	public UICanvasFader uiMenuFader = null;
+	public EventSystem eventSystem = null;
+	public GameObject playButton = null;
 	
 	//
 	private GameVisuals cachedVisuals;
@@ -84,6 +87,7 @@ public class GameState : MonoSingleton<GameState> {
 		cachedHero2Stats.Reset();
 		cachedHero2Input.SetGrabbed(false);
 		
+		eventSystem.SetSelectedGameObject(null);
 		// TODO: start entry scene
 	}
 	
@@ -97,6 +101,7 @@ public class GameState : MonoSingleton<GameState> {
 		cachedHero2Stats.Reset();
 		cachedHero2Input.SetGrabbed(true);
 		
+		eventSystem.SetSelectedGameObject(playButton);
 		// TODO: start death scene
 	}
 	
