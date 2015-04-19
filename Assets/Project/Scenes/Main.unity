@@ -759,7 +759,7 @@ RectTransform:
   - {fileID: 1458621986}
   - {fileID: 1835464031}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -856,7 +856,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Name
@@ -1162,7 +1162,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 195524, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Name
