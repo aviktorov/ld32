@@ -6,6 +6,7 @@ using System.Collections;
 public class HeroHands : MonoBehaviour {
 	
 	//
+	public float grabMass = 1.0f;
 	public float grabOffset = 1.5f;
 	
 	//
@@ -14,6 +15,7 @@ public class HeroHands : MonoBehaviour {
 	
 	private Rigidbody detectedObject;
 	private Rigidbody grabbedObject;
+	private float grabbedMass;
 	private FixedJoint grabbedJoint;
 	
 	//
@@ -29,12 +31,14 @@ public class HeroHands : MonoBehaviour {
 			grabbedJoint = null;
 		}
 		
+		
 		grabbedObject.velocity = Vector3.zero;
 		grabbedObject.angularVelocity = Vector3.zero;
 		
 		JamSuite.Physics.IgnoreCollision(grabbedObject,cachedBody,false);
 		if(throwStrength > 0.0f) grabbedObject.AddForce(cachedTransform.right * throwStrength,ForceMode.Impulse);
 		
+		grabbedObject.mass = grabbedMass;
 		grabbedObject = null;
 	}
 	
@@ -47,12 +51,14 @@ public class HeroHands : MonoBehaviour {
 		JamSuite.Physics.IgnoreCollision(grabbedObject,cachedBody,true);
 		
 		grabbedObject.transform.position = cachedTransform.position + Vector3.up * grabOffset;
+		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
+		
+		grabbedMass = grabbedObject.mass;
+		grabbedObject.mass = grabMass;
 		
 		grabbedJoint = gameObject.AddComponent<FixedJoint>();
 		grabbedJoint.breakForce = breakForce;
 		grabbedJoint.connectedBody = grabbedObject;
-		
-		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
 	}
 	
 	//
