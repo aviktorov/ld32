@@ -216,7 +216,7 @@ MonoBehaviour:
   jump: Player1Jump
   block: Player1Block
   moveVelocity: 5
-  jumpVelocity: 6
+  jumpVelocity: 10
   throwStrength: 10
   throwVertical: .200000003
 --- !u!114 &11436610

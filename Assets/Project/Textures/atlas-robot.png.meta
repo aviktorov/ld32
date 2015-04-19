@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 896b856497187cc42a4ec415804955ce
-timeCreated: 1429440832
+timeCreated: 1429465814
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -31,6 +31,8 @@ TextureImporter:
     21300048: idle_02
     21300050: idle_03
     21300052: idle_04
+    21300054: idle_grab_01
+    21300056: idle_grab_02
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -341,6 +343,26 @@ TextureImporter:
         serializedVersion: 2
         x: 96
         y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .4375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_grab_01
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: .4375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_grab_02
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
         width: 32
         height: 32
       alignment: 9
