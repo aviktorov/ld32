@@ -86,6 +86,22 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
+    m_Name: Player1Jump
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: space
+    altNegativeButton: 
+    altPositiveButton: joystick 1 button 0
+    gravity: 10
+    dead: .00499999989
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 2
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: Player2Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
@@ -157,6 +173,22 @@ InputManager:
     positiveButton: mouse 0
     altNegativeButton: 
     altPositiveButton: joystick 2 button 1
+    gravity: 10
+    dead: .00499999989
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player2Jump
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: up
+    altNegativeButton: 
+    altPositiveButton: joystick 2 button 0
     gravity: 10
     dead: .00499999989
     sensitivity: 3

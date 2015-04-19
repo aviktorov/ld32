@@ -11,10 +11,12 @@ public class HeroInput : MonoBehaviour {
 	public string moveVertical = "Vertical";
 	
 	public string grab = "Grab";
+	public string jump = "Jump";
 	
 	[Header("Physics")]
 	public float maxVelocity = 10.0f;
 	public float acceleration = 10.0f;
+	public float jumpVelocity = 2.0f;
 	
 	public float throwStrength = 10.0f;
 	public float throwBreakForce = 10.0f;
@@ -22,6 +24,7 @@ public class HeroInput : MonoBehaviour {
 	//
 	private Rigidbody cachedBody;
 	private HeroHands cachedHands;
+	private HeroCollisions cachedCollision;
 	private Transform cachedCameraTransform;
 	private Transform cachedTransform;
 	
@@ -30,6 +33,7 @@ public class HeroInput : MonoBehaviour {
 		cachedBody = GetComponent<Rigidbody>();
 		cachedHands = GetComponent<HeroHands>();
 		cachedTransform = GetComponent<Transform>();
+		cachedCollision = GetComponent<HeroCollisions>();
 	}
 	
 	private void Start() {
@@ -58,6 +62,12 @@ public class HeroInput : MonoBehaviour {
 		
 		// orient
 		if(input.sqrMagnitude > 0.0f) cachedTransform.rotation = Quaternion.LookRotation(new Vector3(-movement.z,0.0f,movement.x).normalized,Vector3.up);
+		
+		// jump
+		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {
+			cachedBody.velocity = cachedBody.velocity.WithY(jumpVelocity);
+			cachedCollision.SetInAir(true);
+		}
 		
 		// grab
 		if(Input.GetButtonDown(grab)) cachedHands.Grab(throwBreakForce);

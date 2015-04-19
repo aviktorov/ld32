@@ -24,6 +24,6 @@ public class HeroAnimation : MonoBehaviour {
 		cachedAnimation.SetFloat("VelocityY",velocity.y);
 		
 		cachedAnimation.SetBool("Grabbing",cachedHands.GetGrabbedObject() != null);
-		cachedAnimation.SetBool("InAir",false); // TODO: jumping
+		cachedAnimation.SetBool("InAir",cachedCollision.InAir());
 	}
 }

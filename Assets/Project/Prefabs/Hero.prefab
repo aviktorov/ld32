@@ -196,8 +196,10 @@ MonoBehaviour:
   moveHorizontal: Player1Horizontal
   moveVertical: Player1Vertical
   grab: Player1Grab
+  jump: Player1Jump
   maxVelocity: 2
   acceleration: 10
+  jumpVelocity: 6
   throwStrength: 10
   throwBreakForce: 5000
 --- !u!114 &11436610
