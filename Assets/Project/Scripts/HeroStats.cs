@@ -31,6 +31,7 @@ public class HeroStats : MonoBehaviour {
 	private Rigidbody2D cachedBody;
 	private HeroHands cachedHands;
 	private HeroInput cachedInput;
+	private HeroCollisions cachedCollision;
 	private Transform cachedTransform;
 	
 	private Quaternion stableRotation;
@@ -49,14 +50,18 @@ public class HeroStats : MonoBehaviour {
 	//
 	public void PrepareForGrab() {
 		cachedBody.fixedAngle = false;
-		cachedInput.enabled = false;
+		cachedInput.SetGrabbed(true);
 		cachedTransform.rotation = Quaternion.LookRotation(cachedTransform.forward,-Vector3.up);
 		stabilize = false;
 	}
 	
+	public void PrepareForDrop() {
+		cachedCollision.SetCheckLanding(true);
+	}
+	
 	public void RestoreAfterLanding() {
 		cachedBody.fixedAngle = true;
-		cachedInput.enabled = true;
+		cachedInput.SetGrabbed(false);
 		stabilize = true;
 	}
 	
@@ -64,6 +69,7 @@ public class HeroStats : MonoBehaviour {
 	private void Awake() {
 		cachedHands = GetComponent<HeroHands>();
 		cachedInput = GetComponent<HeroInput>();
+		cachedCollision = GetComponent<HeroCollisions>();
 		cachedBody = GetComponent<Rigidbody2D>();
 		cachedTransform = GetComponent<Transform>();
 		

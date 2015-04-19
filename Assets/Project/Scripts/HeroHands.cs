@@ -21,7 +21,7 @@ public class HeroHands : MonoBehaviour {
 	//
 	public Rigidbody2D GetGrabbedObject() { return grabbedObject; }
 	
-	public void Drop(float throwStrength = 0.0f) {
+	public void Drop(float throwStrength = 0.0f,float throwVertical = 0.0f) {
 		if(!grabbedObject) return;
 		
 		if(grabbedJoint) {
@@ -33,11 +33,12 @@ public class HeroHands : MonoBehaviour {
 		grabbedObject.angularVelocity = 0.0f;
 		
 		JamSuite.Physics2D.IgnoreCollision(grabbedObject,cachedBody,false);
-		
 		if(throwStrength > 0.0f) {
-			Vector2 throwDirection = new Vector2(cachedTransform.localScale.x,0.0f);
-			grabbedObject.AddForce(throwDirection * throwStrength,ForceMode2D.Impulse);
+			Vector2 throwDirection = new Vector2(cachedTransform.localScale.x,throwVertical);
+			grabbedObject.AddForce(throwDirection.normalized * throwStrength,ForceMode2D.Impulse);
 		}
+		
+		grabbedObject.gameObject.BroadcastMessage("PrepareForDrop",SendMessageOptions.DontRequireReceiver);
 		
 		grabbedObject.mass = grabbedMass;
 		grabbedObject = null;
