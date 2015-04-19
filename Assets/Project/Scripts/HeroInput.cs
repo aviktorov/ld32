@@ -21,13 +21,15 @@ public class HeroInput : MonoBehaviour {
 	
 	//
 	private Rigidbody cachedBody;
-	private Transform cachedCameraTransform;
 	private HeroHands cachedHands;
+	private Transform cachedCameraTransform;
+	private Transform cachedTransform;
 	
 	//
 	private void Awake() {
 		cachedBody = GetComponent<Rigidbody>();
 		cachedHands = GetComponent<HeroHands>();
+		cachedTransform = GetComponent<Transform>();
 	}
 	
 	private void Start() {
@@ -54,7 +56,8 @@ public class HeroInput : MonoBehaviour {
 		if(newVelocity.sqrMagnitude > maxVelocity * maxVelocity) newVelocity = newVelocity.normalized * maxVelocity;
 		cachedBody.velocity = newVelocity.WithY(cachedBody.velocity.y);
 		
-		// orient?
+		// orient
+		if(input.sqrMagnitude > 0.0f) cachedTransform.rotation = Quaternion.LookRotation(new Vector3(-movement.z,0.0f,movement.x).normalized,Vector3.up);
 		
 		// grab
 		if(Input.GetButtonDown(grab)) cachedHands.Grab(throwBreakForce);
