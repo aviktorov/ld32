@@ -10,7 +10,7 @@ public class HeroCollisions : MonoBehaviour {
 	//
 	public float groundTreshold = 0.7f;
 	public float landingTime = 2.0f;
-	public UnityEvent onDamage = null;
+	public UnityEvent onCollision = null;
 	public UnityEvent onLand = null;
 	
 	//
@@ -57,6 +57,6 @@ public class HeroCollisions : MonoBehaviour {
 		
 		currentLandingTime = landingTime;
 		
-		onDamage.Invoke();
+		onCollision.Invoke();
 	}
 }

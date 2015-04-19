@@ -164,14 +164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTreshold: .699999988
-  damageVelocityThreshold: 10
   landingTime: .100000001
-  onDamage:
+  onCollision:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11496032}
         m_MethodName: TakeHealth
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -181,7 +180,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: JamSuite.Events.FloatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onLand:
     m_PersistentCalls:
@@ -217,6 +216,7 @@ MonoBehaviour:
   block: Player1Block
   moveVelocity: 5
   jumpVelocity: 10
+  maxJumps: 2
   throwStrength: 10
   throwVertical: .200000003
 --- !u!114 &11436610
@@ -241,12 +241,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d10e62507d15144d8d6d34e250ff49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 5
   maxStamina: 100
   staminaRegainSpeed: 10
   staminaCooldown: 5
   staminaLossMultiplier: 2
-  staminaDrainPerPress: 10
+  recoveryAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  recoveryInterval: 1
+  recoveryAreaStart: .300000012
+  recoveryAreaEnd: .5
   stabilizationSmoothness: 5
 --- !u!212 &21216830
 SpriteRenderer:
