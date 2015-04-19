@@ -56,6 +56,8 @@ public class HeroInput : MonoBehaviour {
 		isMoving = false;
 		isGrabbed = false;
 		isBlocking = false;
+		
+		currentJumps = 0;
 	}
 	
 	//
