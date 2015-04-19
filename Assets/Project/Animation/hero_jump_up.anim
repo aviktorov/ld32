@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: jump_up
+  m_Name: hero_jump_up
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
