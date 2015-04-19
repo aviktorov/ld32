@@ -6,6 +6,10 @@ using System.Collections;
 public class HeroHands : MonoBehaviour {
 	
 	//
+	public float grabOffset = 1.5f;
+	
+	//
+	private Rigidbody cachedBody;
 	private Transform cachedTransform;
 	
 	private Rigidbody detectedObject;
@@ -19,12 +23,18 @@ public class HeroHands : MonoBehaviour {
 	
 	public void Drop(float throwStrength = 0.0f) {
 		if(!grabbedObject) return;
-		if(!grabbedJoint) return;
 		
-		Destroy(grabbedJoint);
-		grabbedJoint = null;
+		if(grabbedJoint) {
+			Destroy(grabbedJoint);
+			grabbedJoint = null;
+		}
 		
+		grabbedObject.velocity = Vector3.zero;
+		grabbedObject.angularVelocity = Vector3.zero;
+		
+		JamSuite.Physics.IgnoreCollision(grabbedObject,cachedBody,false);
 		if(throwStrength > 0.0f) grabbedObject.AddForce(cachedTransform.right * throwStrength,ForceMode.Impulse);
+		
 		grabbedObject = null;
 	}
 	
@@ -34,16 +44,20 @@ public class HeroHands : MonoBehaviour {
 		if(grabbedJoint) return;
 		
 		grabbedObject = detectedObject;
+		JamSuite.Physics.IgnoreCollision(grabbedObject,cachedBody,true);
+		
+		grabbedObject.transform.position = cachedTransform.position + Vector3.up * grabOffset;
 		
 		grabbedJoint = gameObject.AddComponent<FixedJoint>();
-		grabbedJoint.connectedBody = grabbedObject;
 		grabbedJoint.breakForce = breakForce;
+		grabbedJoint.connectedBody = grabbedObject;
 		
-		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",gameObject,SendMessageOptions.DontRequireReceiver);
+		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
 	}
 	
 	//
 	private void Awake() {
+		cachedBody = GetComponent<Rigidbody>();
 		cachedTransform = GetComponent<Transform>();
 		
 		grabbedObject = null;
@@ -56,7 +70,7 @@ public class HeroHands : MonoBehaviour {
 		
 		// stop holding if our joint was broken
 		if(grabbedObject && !grabbedJoint) {
-			grabbedObject = null;
+			Drop();
 		}
 	}
 	

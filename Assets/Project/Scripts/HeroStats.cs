@@ -24,8 +24,6 @@ public class HeroStats : MonoBehaviour {
 	private float currentCooldownTime;
 	
 	private Rigidbody[] cachedBodies;
-	private GameObject grabSender;
-	
 	private HeroHands cachedHands;
 	private Transform cachedTransform;
 	
@@ -43,13 +41,11 @@ public class HeroStats : MonoBehaviour {
 	}
 	
 	//
-	public void PrepareForGrab(GameObject sender) {
+	public void PrepareForGrab() {
 		foreach(Rigidbody body in cachedBodies) {
 			body.constraints = RigidbodyConstraints.None;
 		}
 		
-		IgnoreCollisions(sender,gameObject,true);
-		grabSender = sender;
 		stabilize = false;
 	}
 	
@@ -58,41 +54,7 @@ public class HeroStats : MonoBehaviour {
 			body.constraints = RigidbodyConstraints.FreezeRotation;
 		}
 		
-		if(grabSender) {
-			IgnoreCollisions(grabSender,gameObject,false);
-			grabSender = null;
-		}
-		
 		stabilize = true;
-	}
-	
-	//
-	private void IgnoreCollisions(GameObject object1,GameObject object2,bool ignore = true) {
-		if(object1 == object2) return;
-		
-		Collider[] colliders1 = object1.GetComponentsInChildren<Collider>();
-		Collider[] colliders2 = object2.GetComponentsInChildren<Collider>();
-		
-		foreach(Collider collider1 in colliders1) {
-			foreach(Collider collider2 in colliders2) {
-				if(collider1 == collider2) continue;
-				Physics.IgnoreCollision(collider1,collider2,ignore);
-			}
-		}
-	}
-	
-	private void IgnoreCollisions(Rigidbody body1,Rigidbody body2,bool ignore = true) {
-		if(body1 == body2) return;
-		
-		Collider[] colliders1 = body1.GetComponentsInChildren<Collider>();
-		Collider[] colliders2 = body2.GetComponentsInChildren<Collider>();
-		
-		foreach(Collider collider1 in colliders1) {
-			foreach(Collider collider2 in colliders2) {
-				if(collider1 == collider2) continue;
-				Physics.IgnoreCollision(collider1,collider2,ignore);
-			}
-		}
 	}
 	
 	//
