@@ -58,7 +58,7 @@ public class HeroInput : MonoBehaviour {
 		
 		if(isGrabbed) {
 			HeroStats grabberHero = cachedHero.GetGrabberHero();
-			if(grabberHero && Input.GetButtonDown(jump)) {
+			if(grabberHero && Input.GetButtonDown(grab)) {
 				grabberHero.TakeStamina(cachedHero.staminaDrainPerPress);
 			}
 			
