@@ -850,6 +850,10 @@ Prefab:
       propertyPath: m_Name
       value: Hero1
       objectReference: {fileID: 0}
+    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
   m_IsPrefabParent: 0
@@ -1664,6 +1668,10 @@ Prefab:
     - target: {fileID: 11400800, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: blockingColor.g
       value: .00218466227
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: maxHealth
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}

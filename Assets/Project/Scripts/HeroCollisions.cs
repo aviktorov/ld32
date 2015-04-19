@@ -9,9 +9,8 @@ public class HeroCollisions : MonoBehaviour {
 	
 	//
 	public float groundTreshold = 0.7f;
-	public float damageVelocityThreshold = 10.0f;
 	public float landingTime = 2.0f;
-	public FloatEvent onDamage = null;
+	public UnityEvent onDamage = null;
 	public UnityEvent onLand = null;
 	
 	//
@@ -58,9 +57,6 @@ public class HeroCollisions : MonoBehaviour {
 		
 		currentLandingTime = landingTime;
 		
-		float magnitude = collision.relativeVelocity.magnitude;
-		if(magnitude < damageVelocityThreshold) return;
-		
-		onDamage.Invoke(magnitude);
+		onDamage.Invoke();
 	}
 }

@@ -7,7 +7,7 @@ public class HeroStats : MonoBehaviour {
 	
 	//
 	[Header("Stats")]
-	public int maxHealth = 100;
+	public int maxHealth = 5;
 	public int maxStamina = 100;
 	
 	[Header("Stamina")]
@@ -37,10 +37,14 @@ public class HeroStats : MonoBehaviour {
 	private Quaternion stableRotation;
 	
 	private bool stabilize;
+	private bool stunned;
 	
 	//
-	public void TakeHealth(float amount) {
-		health = Mathf.Max(0,health - Mathf.CeilToInt(amount));
+	public void TakeHealth() {
+		if(!stunned) return;
+		
+		health = Mathf.Max(0,health - 1);
+		stunned = false;
 	}
 	
 	public void TakeStamina(float amount) {
@@ -57,12 +61,14 @@ public class HeroStats : MonoBehaviour {
 	
 	public void PrepareForDrop() {
 		cachedCollision.SetCheckLanding(true);
+		stunned = true;
 	}
 	
 	public void RestoreAfterLanding() {
 		cachedBody.fixedAngle = true;
 		cachedInput.SetGrabbed(false);
 		stabilize = true;
+		stunned = false;
 	}
 	
 	//
@@ -74,6 +80,7 @@ public class HeroStats : MonoBehaviour {
 		cachedTransform = GetComponent<Transform>();
 		
 		stabilize = true;
+		stunned = false;
 		stableRotation = Quaternion.LookRotation(Vector3.forward,Vector3.up);
 	}
 	
