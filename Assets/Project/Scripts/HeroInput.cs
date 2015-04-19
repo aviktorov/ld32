@@ -23,6 +23,10 @@ public class HeroInput : MonoBehaviour {
 	private HeroHands cachedHands;
 	private HeroCollisions cachedCollision;
 	private Transform cachedTransform;
+	private bool isMoving;
+	
+	//
+	public bool IsMoving() { return isMoving; }
 	
 	//
 	private void Awake() {
@@ -35,6 +39,8 @@ public class HeroInput : MonoBehaviour {
 	private void Start() {
 		if(!Camera.main) Debug.LogError("No main camera on scene");
 		if(!cachedHands) Debug.LogError("Handless hero, yikes");
+		
+		isMoving = false;
 	}
 	
 	//
@@ -44,10 +50,12 @@ public class HeroInput : MonoBehaviour {
 		
 		// movement
 		float input = Input.GetAxis(moveHorizontal);
+		isMoving = Mathf.Abs(input) > Mathf.Epsilon;
+		
 		cachedBody.velocity = new Vector2(input * moveVelocity,cachedBody.velocity.y);
 		
 		// orient
-		if(Mathf.Abs(input) > 0.0f) cachedTransform.localScale = new Vector3(Mathf.Sign(input),1.0f,1.0f);
+		if(isMoving) cachedTransform.localScale = new Vector3(Mathf.Sign(input),1.0f,1.0f);
 		
 		// jump
 		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {
