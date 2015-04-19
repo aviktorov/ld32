@@ -19,8 +19,13 @@ public class HeroStats : MonoBehaviour {
 	public float stabilizationSmoothness = 5.0f;
 	
 	//
-	private int health;
-	private float stamina;
+	[System.NonSerialized]
+	public int health;
+	
+	[System.NonSerialized]
+	public float stamina;
+	
+	//
 	private float currentCooldownTime;
 	
 	private Rigidbody2D cachedBody;
