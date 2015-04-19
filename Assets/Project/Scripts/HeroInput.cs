@@ -65,8 +65,6 @@ public class HeroInput : MonoBehaviour {
 		if(cachedBody == null) return;
 		if(cachedHands == null) return;
 		
-		if(cachedHero.health == 0) return;
-		
 		// recovery
 		if(Input.GetButtonDown(jump) && cachedHero.CanRecover()) {
 			cachedHero.RestoreAfterLanding();

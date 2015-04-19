@@ -13,6 +13,8 @@ public class GameState : MonoSingleton<GameState> {
 	//
 	[Header("Data")]
 	public Stage stage = Stage.Arena;
+	public Transform hero1 = null;
+	public Transform hero2 = null;
 	
 	[Header("Anchors")]
 	public Transform menuAnchor = null;
@@ -29,6 +31,11 @@ public class GameState : MonoSingleton<GameState> {
 	
 	//
 	private GameVisuals cachedVisuals;
+	
+	private HeroStats cachedHero1Stats;
+	private HeroInput cachedHero1Input;
+	private HeroStats cachedHero2Stats;
+	private HeroInput cachedHero2Input;
 	
 	//
 	public UICanvasFader GetStageFader(Stage s) {
@@ -70,25 +77,36 @@ public class GameState : MonoSingleton<GameState> {
 	public void GotoArena() {
 		stage = Stage.Arena;
 		cachedVisuals.SetTransition(Stage.Menu,Stage.Arena);
-		cachedVisuals.SetHeroTransition(Stage.Menu,Stage.Arena); // wait?
+		
+		cachedHero1Stats.Reset();
+		cachedHero1Input.SetGrabbed(false);
+		
+		cachedHero2Stats.Reset();
+		cachedHero2Input.SetGrabbed(false);
 		
 		// TODO: start entry scene
-		// TODO: suck heroes through the pipe to arena
 	}
 	
 	public void GotoMenu() {
 		stage = Stage.Menu;
 		cachedVisuals.SetTransition(Stage.Arena,Stage.Menu);
-		cachedVisuals.SetHeroTransition(Stage.Arena,Stage.Menu); // wait?
+		
+		cachedHero1Stats.Reset();
+		cachedHero1Input.SetGrabbed(true);
+		
+		cachedHero2Stats.Reset();
+		cachedHero2Input.SetGrabbed(true);
 		
 		// TODO: start death scene
-		// TODO: reset hero states
-		// TODO: suck heroes through the pipe to menu
 	}
 	
 	//
 	private void Awake() {
 		cachedVisuals = GetComponent<GameVisuals>();
+		cachedHero1Stats = hero1.GetComponent<HeroStats>();
+		cachedHero1Input = hero1.GetComponent<HeroInput>();
+		cachedHero2Stats = hero2.GetComponent<HeroStats>();
+		cachedHero2Input = hero2.GetComponent<HeroInput>();
 	}
 	
 	private void Start() {

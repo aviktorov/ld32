@@ -72,7 +72,13 @@ public class HeroStats : MonoBehaviour {
 		health = Mathf.Max(0,health - 1);
 		isStunned = false;
 		
-		if(health == 0) onDeath.Invoke();
+		if(health == 0) {
+			cachedBody.fixedAngle = false;
+			cachedInput.SetGrabbed(true);
+			stabilize = false;
+			
+			onDeath.Invoke();
+		}
 		
 	}
 	
@@ -101,6 +107,17 @@ public class HeroStats : MonoBehaviour {
 		isStunned = false;
 	}
 	
+	public void Reset() {
+		health = maxHealth;
+		stamina = maxStamina;
+		
+		stabilize = true;
+		isStunned = false;
+		
+		currentCooldownTime = 0.0f;
+		currentRecoveryTime = 0.0f;
+	}
+	
 	//
 	private void Awake() {
 		cachedHands = GetComponent<HeroHands>();
@@ -109,14 +126,11 @@ public class HeroStats : MonoBehaviour {
 		cachedBody = GetComponent<Rigidbody2D>();
 		cachedTransform = GetComponent<Transform>();
 		
-		stabilize = true;
-		isStunned = false;
 		stableRotation = Quaternion.LookRotation(Vector3.forward,Vector3.up);
 	}
 	
 	private void Start() {
-		health = maxHealth;
-		stamina = maxStamina;
+		Reset();
 	}
 	
 	//
