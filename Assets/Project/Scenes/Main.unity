@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796faf1fc638fb047b9e0e9e6d39e565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 0
+  stage: 1
   hero1: {fileID: 761954674}
   hero2: {fileID: 329739642}
   menuAnchor: {fileID: 189601291}

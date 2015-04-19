@@ -94,9 +94,9 @@ public class HeroStats : MonoBehaviour {
 		stabilize = false;
 	}
 	
-	public void PrepareForDrop() {
+	public void PrepareForDrop(bool stunned) {
 		cachedCollision.SetCheckLanding(true);
-		isStunned = true;
+		isStunned = stunned;
 		currentRecoveryTime = 0.0f;
 	}
 	

@@ -38,7 +38,7 @@ public class HeroHands : MonoBehaviour {
 			grabbedObject.AddForce(throwDirection.normalized * throwStrength,ForceMode2D.Impulse);
 		}
 		
-		grabbedObject.gameObject.BroadcastMessage("PrepareForDrop",gameObject,SendMessageOptions.DontRequireReceiver);
+		grabbedObject.gameObject.BroadcastMessage("PrepareForDrop",throwStrength > 0.0f,SendMessageOptions.DontRequireReceiver);
 		
 		grabbedObject.mass = grabbedMass;
 		grabbedObject = null;
@@ -60,7 +60,7 @@ public class HeroHands : MonoBehaviour {
 		JamSuite.Physics2D.IgnoreCollision(grabbedObject.gameObject,cachedBody.gameObject,true);
 		
 		grabbedObject.transform.position = cachedTransform.position + Vector3.up * grabOffset;
-		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",gameObject,SendMessageOptions.DontRequireReceiver);
+		grabbedObject.gameObject.BroadcastMessage("PrepareForGrab",SendMessageOptions.DontRequireReceiver);
 		
 		grabbedMass = grabbedObject.mass;
 		grabbedObject.mass = grabMass;
