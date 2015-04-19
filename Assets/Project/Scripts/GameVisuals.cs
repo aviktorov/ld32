@@ -23,6 +23,14 @@ public class GameVisuals : MonoBehaviour {
 		stageTo = to;
 		currentTime = 0.0f;
 		
+		// set ui
+		UICanvasFader uiFrom = cachedState.GetStageFader(stageFrom);
+		UICanvasFader uiTo = cachedState.GetStageFader(stageTo);
+		
+		if(uiFrom) uiFrom.alpha = 1.0f;
+		if(uiTo) uiTo.alpha = 0.0f;
+		
+		// set camera
 		Transform anchorFrom = cachedState.GetStageAnchor(stageFrom);
 		cachedCameraTransform.position = anchorFrom.position;
 	}
@@ -49,8 +57,8 @@ public class GameVisuals : MonoBehaviour {
 		UICanvasFader uiFrom = cachedState.GetStageFader(stageFrom);
 		UICanvasFader uiTo = cachedState.GetStageFader(stageTo);
 		
-		if(uiFrom) uiFrom.alpha = k;
-		if(uiTo) uiTo.alpha = 1.0f - k;
+		if(uiFrom) uiFrom.alpha = 1.0f - k;
+		if(uiTo) uiTo.alpha = k;
 		
 		// animate camera
 		Transform anchorFrom = cachedState.GetStageAnchor(stageFrom);

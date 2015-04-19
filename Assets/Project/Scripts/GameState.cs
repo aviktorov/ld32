@@ -41,12 +41,26 @@ public class GameState : MonoSingleton<GameState> {
 		return null;
 	}
 	
+	public void GotoArena() {
+		stage = Stage.Arena;
+		cachedVisuals.SetTransition(Stage.Menu,Stage.Arena);
+	}
+	
+	public void GotoMenu() {
+		stage = Stage.Menu;
+		cachedVisuals.SetTransition(Stage.Arena,Stage.Menu);
+	}
+	
 	//
 	private void Awake() {
 		cachedVisuals = GetComponent<GameVisuals>();
 	}
 	
 	private void Start() {
+		
+		if(uiMenuFader) uiMenuFader.alpha = 0.0f;
+		if(uiArenaFader) uiArenaFader.alpha = 0.0f;
+		
 		cachedVisuals.SetTransition(stage,stage);
 	}
 }
