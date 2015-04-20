@@ -29,6 +29,7 @@ public class HeroStats : MonoBehaviour {
 	
 	[Header("Events")]
 	public UnityEvent onDeath = null;
+	public UnityEvent onHit = null;
 	
 	//
 	[System.NonSerialized]
@@ -72,6 +73,8 @@ public class HeroStats : MonoBehaviour {
 		
 		health = Mathf.Max(0,health - 1);
 		isStunned = false;
+		
+		onHit.Invoke();
 		
 		if(health == 0) {
 			cachedBody.fixedAngle = false;

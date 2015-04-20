@@ -42,7 +42,7 @@ public class GameVisuals : MonoBehaviour {
 		cachedCameraTransform = Camera.main.GetComponent<Transform>();
 	}
 	
-	private void LateUpdate() {
+	private void Update() {
 		
 		// animate time
 		currentTime = Mathf.Min(currentTime + Time.deltaTime,transitionTime);
