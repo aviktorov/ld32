@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: .200000003
   hero: {fileID: 1316891112}
-  debug: 0
+  debug: 1
   recoveryAreaStart: {fileID: 1189914826}
   recoveryAreaEnd: {fileID: 814607057}
   recoverySlider: {fileID: 1742440630}
@@ -4101,8 +4101,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 70f5ea053834ae64b953c9976254d211, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5693bc1bdf19ac44ba80a40679093e14, type: 3}
+  m_Color: {r: .215686277, g: .749019623, b: .352941185, a: .619607866}
 --- !u!1 &1098927707
 GameObject:
   m_ObjectHideFlags: 0
@@ -4692,8 +4692,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce4ab4fccebb6ed44840115a8250be15, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5693bc1bdf19ac44ba80a40679093e14, type: 3}
+  m_Color: {r: .984313726, g: .454901963, b: .454901963, a: .454901963}
 --- !u!1 &1265984660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,14 +5228,6 @@ Prefab:
       propertyPath: blockingColor.g
       value: .00218466227
       objectReference: {fileID: 0}
-    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: recoveryInterval
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11408556, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onCollision.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -5279,26 +5271,6 @@ Prefab:
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407818, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: grabOffset
-      value: 1.29999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_Offset.x
-      value: .0399999991
-      objectReference: {fileID: 0}
-    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_Offset.y
-      value: .360000014
-      objectReference: {fileID: 0}
-    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: m_Size.y
-      value: .720000029
       objectReference: {fileID: 0}
     - target: {fileID: 6112132, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_Offset.x
@@ -5952,7 +5924,7 @@ Transform:
   m_GameObject: {fileID: 1607699304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: .140000001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .699999988, y: .699999988, z: 1}
   m_Children:
   - {fileID: 1053259317}
   - {fileID: 1254953408}
@@ -5983,8 +5955,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec0f65aad5e49d8419c5042712f5318c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5693bc1bdf19ac44ba80a40679093e14, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: .313725501}
 --- !u!1 &1607723129
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,8 +6732,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d8336c295b2c5f43ab8e0d32b3ec4b1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5693bc1bdf19ac44ba80a40679093e14, type: 3}
+  m_Color: {r: .690196097, g: .690196097, b: .690196097, a: .486274511}
 --- !u!1 &1853768220
 GameObject:
   m_ObjectHideFlags: 0
@@ -7525,7 +7497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: .200000003
   hero: {fileID: 1735814932}
-  debug: 0
+  debug: 1
   recoveryAreaStart: {fileID: 1254953408}
   recoveryAreaEnd: {fileID: 1053259317}
   recoverySlider: {fileID: 1853287929}
