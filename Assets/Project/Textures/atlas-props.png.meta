@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 4f0b35e512a87814ea98035a89b4b610
-timeCreated: 1429434506
+timeCreated: 1429522128
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: box
+    21300002: tube_top
+    21300004: tube_middle
+    21300006: tube_bottom
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,6 +59,36 @@ TextureImporter:
         x: 0
         y: 96
         width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tube_top
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 32
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tube_middle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 64
+        height: 32
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tube_bottom
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
         height: 32
       alignment: 7
       pivot: {x: .5, y: 0}
