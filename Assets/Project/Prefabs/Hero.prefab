@@ -215,11 +215,11 @@ MonoBehaviour:
   grab: Player1Grab
   jump: Player1Jump
   block: Player1Block
-  moveVelocity: 5
+  moveVelocity: 6
   jumpVelocity: 10
   maxJumps: 2
-  throwStrength: 10
-  throwVertical: .200000003
+  throwStrength: 13
+  throwVertical: .300000012
 --- !u!114 &11436610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,29 +242,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d10e62507d15144d8d6d34e250ff49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  maxStamina: 100
-  staminaRegainSpeed: 10
+  maxHealth: 10
+  maxStamina: 10
+  staminaRegainSpeed: 1
   staminaCooldown: 5
-  staminaLossMultiplier: 2
+  staminaLossMultiplier: 5
   recoveryAnimation:
     serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
     - time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  recoveryInterval: 1
-  recoveryAreaStart: .300000012
-  recoveryAreaEnd: .5
+  recoveryInterval: .800000012
+  recoveryAreaStart: .400000006
+  recoveryAreaEnd: .600000024
   stabilizationSmoothness: 5
   onDeath:
     m_PersistentCalls:
