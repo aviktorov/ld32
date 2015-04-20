@@ -8,6 +8,7 @@ public class GameVisuals : MonoBehaviour {
 	//
 	public float transitionTime = 3.0f;
 	public float transitionHeroTime = 1.0f;
+	public float kamiSmoothness = 5.0f;
 	
 	public AnimationCurve transitionCurve = AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f);
 	
@@ -19,8 +20,13 @@ public class GameVisuals : MonoBehaviour {
 	
 	private float currentTime;
 	private float currentHeroTime;
+	private bool kamiToggled;
 	
 	//
+	public void ToggleKami() {
+		kamiToggled = !kamiToggled;
+	}
+	
 	public void SetTransition(Stage from,Stage to) {
 		stageFrom = from;
 		stageTo = to;
@@ -40,6 +46,8 @@ public class GameVisuals : MonoBehaviour {
 	
 	private void Start() {
 		cachedCameraTransform = Camera.main.GetComponent<Transform>();
+		kamiToggled = false;
+		cachedState.uiKamiFader.alpha = 0.0f;
 	}
 	
 	private void Update() {
@@ -50,6 +58,9 @@ public class GameVisuals : MonoBehaviour {
 		
 		currentHeroTime = Mathf.Min(currentHeroTime + Time.deltaTime,transitionHeroTime);
 		float progressHero = transitionCurve.Evaluate(Mathf.Clamp01(currentHeroTime / transitionHeroTime));
+		
+		// animate kami
+		cachedState.uiKamiFader.alpha = Mathf.Lerp(cachedState.uiKamiFader.alpha,(kamiToggled) ? 1.0f : 0.0f,kamiSmoothness * Time.deltaTime);
 		
 		// animate heroes
 		if(Mathf.Abs(currentHeroTime - transitionHeroTime) > Mathf.Epsilon) {

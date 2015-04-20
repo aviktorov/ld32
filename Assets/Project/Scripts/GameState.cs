@@ -30,6 +30,7 @@ public class GameState : MonoSingleton<GameState> {
 	[Header("UI")]
 	public UICanvasFader uiArenaFader = null;
 	public UICanvasFader uiMenuFader = null;
+	public UICanvasFader uiKamiFader = null;
 	public EventSystem eventSystem = null;
 	public GameObject playButton = null;
 	
