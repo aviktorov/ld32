@@ -12,8 +12,9 @@ public class UIHeroStunbar : MonoBehaviour {
 	public bool debug = false;
 	
 	[Header("Recovery")]
-	public Transform recoveryAreaStart = null;
-	public Transform recoveryAreaEnd = null;
+	public Color defaultColor = Color.white;
+	public Color recoveryColor = Color.green;
+	public SpriteRenderer recoveryBackground = null;
 	public Transform recoverySlider = null;
 	
 	//
@@ -32,11 +33,12 @@ public class UIHeroStunbar : MonoBehaviour {
 	private void Update() {
 		
 		// placement
-		cachedTransform.position = hero.transform.position + Vector3.up * offset;
+		cachedTransform.position = hero.transform.position.WithZ(cachedTransform.position.z) + Vector3.up * offset;
 		
 		currentDebugTime += Time.deltaTime;
 		while(currentDebugTime > hero.recoveryInterval) currentDebugTime -= hero.recoveryInterval;
 		
+		// debug
 		float progress = hero.GetRecoveryProgress();
 		if(debug) progress = hero.recoveryAnimation.Evaluate(Mathf.Clamp01(currentDebugTime / hero.recoveryInterval));
 		
@@ -48,8 +50,7 @@ public class UIHeroStunbar : MonoBehaviour {
 		}
 		
 		// recovery circles
-		recoveryAreaStart.localScale = Vector3.one * hero.recoveryAreaStart;
-		recoveryAreaEnd.localScale = Vector3.one * hero.recoveryAreaEnd;
+		recoveryBackground.color = ((progress > hero.recoveryAreaStart) && (progress < hero.recoveryAreaEnd)) ? recoveryColor : defaultColor;
 		recoverySlider.localScale = Vector3.one * (1.0f - progress);
 	}
 }
