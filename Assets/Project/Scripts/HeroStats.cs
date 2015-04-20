@@ -80,7 +80,6 @@ public class HeroStats : MonoBehaviour {
 			
 			onDeath.Invoke();
 		}
-		
 	}
 	
 	public void TakeStamina(float amount) {
