@@ -939,6 +939,8 @@ GameObject:
   - 4: {fileID: 328037261}
   - 114: {fileID: 328037262}
   - 114: {fileID: 328037263}
+  - 114: {fileID: 328037265}
+  - 111: {fileID: 328037264}
   m_Layer: 0
   m_Name: '@Game'
   m_TagString: Untagged
@@ -974,7 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796faf1fc638fb047b9e0e9e6d39e565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
+  stage: 0
   hero1: {fileID: 761954674}
   hero2: {fileID: 329739642}
   menuAnchor: {fileID: 189601291}
@@ -1020,6 +1022,69 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!111 &328037264
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328037260}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: b32d94c38f638874f82d71fef88443d6, type: 2}
+  - {fileID: 7400000, guid: 2000eaee9515b5543ba60932d51491af, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &328037265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328037260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f8108aa06989b4780e9cefaf9878e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStart: {fileID: 7400000, guid: b32d94c38f638874f82d71fef88443d6, type: 2}
+  gameEnd: {fileID: 7400000, guid: 2000eaee9515b5543ba60932d51491af, type: 2}
+  onGameStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 328037262}
+        m_MethodName: GotoArena
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onGameEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 328037262}
+        m_MethodName: GotoMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &329739642 stripped
 Transform:
   m_PrefabParentObject: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
@@ -1427,10 +1492,10 @@ Prefab:
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 328037262}
+      objectReference: {fileID: 328037265}
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GotoMenu
+      value: PlayGameEnd
       objectReference: {fileID: 0}
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1790,8 +1855,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 328037262}
-        m_MethodName: GotoArena
+      - m_Target: {fileID: 328037265}
+        m_MethodName: PlayGameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3245,10 +3310,10 @@ Prefab:
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 328037262}
+      objectReference: {fileID: 328037265}
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GotoMenu
+      value: PlayGameEnd
       objectReference: {fileID: 0}
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

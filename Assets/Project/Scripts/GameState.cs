@@ -89,7 +89,6 @@ public class GameState : MonoSingleton<GameState> {
 		cachedHero2Input.SetGrabbed(false);
 		
 		eventSystem.SetSelectedGameObject(null);
-		// TODO: start entry scene
 	}
 	
 	public void GotoMenu() {
@@ -103,12 +102,12 @@ public class GameState : MonoSingleton<GameState> {
 		cachedHero2Input.SetGrabbed(true);
 		
 		eventSystem.SetSelectedGameObject(playButton);
-		// TODO: start death scene
 	}
 	
 	//
 	private void Awake() {
 		cachedVisuals = GetComponent<GameVisuals>();
+		
 		cachedHero1Stats = hero1.GetComponent<HeroStats>();
 		cachedHero1Input = hero1.GetComponent<HeroInput>();
 		cachedHero2Stats = hero2.GetComponent<HeroStats>();
