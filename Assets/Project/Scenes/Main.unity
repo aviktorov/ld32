@@ -1441,10 +1441,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 328037261}
     m_Modifications:
-    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 409100, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6.44000006
@@ -1482,25 +1478,9 @@ Prefab:
       value: Hero1
       objectReference: {fileID: 0}
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 328037265}
-    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGameEnd
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
   m_IsPrefabParent: 0
@@ -3318,6 +3298,42 @@ Prefab:
     - target: {fileID: 11496032, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407818, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: grabOffset
+      value: 1.29999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Offset.x
+      value: .0399999991
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Offset.y
+      value: .360000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183458, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Size.y
+      value: .720000029
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112132, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Offset.x
+      value: .0299999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112132, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Offset.y
+      value: -.100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112132, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Size.y
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112132, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
+      propertyPath: m_Size.x
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7946df4bd8d540f4bba3bf5ef75169cd, type: 2}
