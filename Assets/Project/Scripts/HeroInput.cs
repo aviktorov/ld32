@@ -77,7 +77,10 @@ public class HeroInput : MonoBehaviour {
 		if(isMoving) cachedTransform.localScale = new Vector3(Mathf.Sign(input),1.0f,1.0f);
 		
 		// block
-		isBlocking = Input.GetButton(block);
+		if(Input.GetButtonDown(block)) isBlocking = true;
+		if(Input.GetButtonUp(block)) isBlocking = false;
+		
+		if(Mathf.Abs(cachedHero.stamina) < Mathf.Epsilon) isBlocking = false;
 		
 		// jump
 		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {

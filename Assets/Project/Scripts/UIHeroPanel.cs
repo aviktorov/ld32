@@ -20,7 +20,7 @@ public class UIHeroPanel : MonoBehaviour {
 	}
 	
 	private void Update() {
-		stamina.localScale = stamina.localScale.WithX(hero.stamina / hero.maxStamina);
+		stamina.localScale = stamina.localScale.WithY(hero.stamina / hero.maxStamina);
 		
 		int availableHearts = (int)((cachedHeartRenderers.Length * hero.health) / (float)hero.maxHealth);
 		for(int i = 0; i < cachedHeartRenderers.Length; ++i) {

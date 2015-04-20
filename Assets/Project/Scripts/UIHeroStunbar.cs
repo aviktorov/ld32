@@ -6,20 +6,18 @@ using System.Collections;
 public class UIHeroStunbar : MonoBehaviour {
 	
 	//
+	[Header("Data")]
 	public float offset = 1.5f;
 	public HeroStats hero = null;
 	
-	public Transform recoveryArea = null;
-	public Transform slider = null;
+	[Header("Recovery")]
+	public Transform recoveryAreaStart = null;
+	public Transform recoveryAreaEnd = null;
+	public Transform recoverySlider = null;
 	
 	//
 	private Transform cachedTransform;
 	private SpriteRenderer[] cachedRenderers;
-	
-	//
-	private float GetParentOffset(float relativeOffset) {
-		return relativeOffset / cachedTransform.localScale.x;
-	}
 	
 	//
 	private void Awake() {
@@ -38,15 +36,9 @@ public class UIHeroStunbar : MonoBehaviour {
 			renderer.enabled = hero.IsStunned();
 		}
 		
-		// recovery area
-		float recoveryAreaWidth = hero.recoveryAreaEnd - hero.recoveryAreaStart;
-		float recoveryAreaOffset = (hero.recoveryAreaEnd + hero.recoveryAreaStart) - 1.0f;
-		
-		recoveryArea.localScale = recoveryArea.localScale.WithX(recoveryAreaWidth);
-		recoveryArea.localPosition = recoveryArea.localPosition.WithX(GetParentOffset(recoveryAreaOffset));
-		
-		// animate slider
-		float sliderOffset = 2.0f * hero.GetRecoveryProgress() - 1.0f;
-		slider.localPosition = slider.localPosition.WithX(GetParentOffset(sliderOffset));
+		// recovery circles
+		recoveryAreaStart.localScale = Vector3.one * hero.recoveryAreaStart;
+		recoveryAreaEnd.localScale = Vector3.one * hero.recoveryAreaEnd;
+		recoverySlider.localScale = Vector3.one * hero.GetRecoveryProgress();
 	}
 }

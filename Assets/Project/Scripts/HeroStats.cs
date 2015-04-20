@@ -16,6 +16,7 @@ public class HeroStats : MonoBehaviour {
 	public float staminaRegainSpeed = 10.0f;
 	public float staminaCooldown = 5.0f;
 	public float staminaLossMultiplier = 2.0f;
+	public float staminaLossInBlock = 2.0f;
 	
 	[Header("Recovery")]
 	public AnimationCurve recoveryAnimation = AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f);
@@ -79,7 +80,6 @@ public class HeroStats : MonoBehaviour {
 			
 			onDeath.Invoke();
 		}
-		
 	}
 	
 	public void TakeStamina(float amount) {
@@ -155,18 +155,25 @@ public class HeroStats : MonoBehaviour {
 		// cooldown
 		currentCooldownTime = Mathf.Max(0,currentCooldownTime - Time.deltaTime);
 		
+		// regain stamina
+		if(Mathf.Abs(currentCooldownTime) < Mathf.Epsilon) {
+			stamina = Mathf.Min(stamina + staminaRegainSpeed * Time.deltaTime,maxStamina);
+		}
+		
+		// take stamina constantly if we're blocking
+		if(cachedInput.IsBlocking()) {
+			stamina = Mathf.Max(0,stamina - staminaLossInBlock * Time.deltaTime);
+		}
+		
 		// take stamina constantly if we're carrying an object in our hands
 		Rigidbody2D obj = cachedHands.GetGrabbedObject();
 		
 		if(obj) {
 			currentCooldownTime = staminaCooldown;
 			stamina = Mathf.Max(0,stamina - staminaLossMultiplier * obj.mass * Time.deltaTime);
-			if(Mathf.Abs(stamina) < Mathf.Epsilon) cachedHands.Drop();
 		}
 		
-		// regain stamina
-		if(Mathf.Abs(currentCooldownTime) < Mathf.Epsilon) {
-			stamina = Mathf.Min(stamina + staminaRegainSpeed * Time.deltaTime,maxStamina);
-		}
+		// drop carrying object if we're weak
+		if(Mathf.Abs(stamina) < Mathf.Epsilon) cachedHands.Drop();
 	}
 }
