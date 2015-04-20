@@ -82,7 +82,6 @@ public class HeroInput : MonoBehaviour {
 		
 		if(Mathf.Abs(cachedHero.stamina) < Mathf.Epsilon) isBlocking = false;
 		
-		
 		// jump
 		if(Input.GetButtonDown(jump) && !cachedCollision.InAir()) {
 			cachedBody.velocity = cachedBody.velocity.WithY(jumpVelocity);
