@@ -30,7 +30,6 @@ public class GameAnimation : MonoBehaviour {
 		cachedAnimation.Play(clip.name);
 		while(cachedAnimation.isPlaying) yield return new WaitForSeconds(0.5f);
 		
-		Debug.Log("The end of " + clip.name);
 		callback.Invoke();
 	}
 }
