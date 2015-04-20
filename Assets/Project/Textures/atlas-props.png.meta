@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4f0b35e512a87814ea98035a89b4b610
-timeCreated: 1429568152
+timeCreated: 1429570376
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,8 @@ TextureImporter:
     21300014: stamina_top
     21300016: stamina_empty
     21300018: stamina_full
+    21300020: banner_red
+    21300022: banner_blue
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -156,6 +158,26 @@ TextureImporter:
         y: 99
         width: 16
         height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: banner_red
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: banner_blue
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 128
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
