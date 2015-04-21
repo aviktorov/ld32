@@ -11,6 +11,9 @@ public class UIHeroPanel : MonoBehaviour {
 	public RectTransform hearts = null;
 	public RectTransform stamina = null;
 	
+	public Sprite fullHeart = null;
+	public Sprite emptyHeart = null;
+	
 	//
 	private Image[] cachedHeartRenderers;
 	
@@ -24,7 +27,7 @@ public class UIHeroPanel : MonoBehaviour {
 		
 		int availableHearts = (int)((cachedHeartRenderers.Length * hero.health) / (float)hero.maxHealth);
 		for(int i = 0; i < cachedHeartRenderers.Length; ++i) {
-			cachedHeartRenderers[i].enabled = (i < availableHearts);
+			cachedHeartRenderers[i].sprite = (i < availableHearts) ? fullHeart : emptyHeart;
 		}
 	}
 }
