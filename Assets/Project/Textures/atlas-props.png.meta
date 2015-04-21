@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4f0b35e512a87814ea98035a89b4b610
-timeCreated: 1429570376
+timeCreated: 1429575755
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -104,9 +104,9 @@ TextureImporter:
     - name: heart_full
       rect:
         serializedVersion: 2
-        x: 32
+        x: 193
         y: 112
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -114,9 +114,9 @@ TextureImporter:
     - name: heart_empty
       rect:
         serializedVersion: 2
-        x: 32
+        x: 193
         y: 96
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -124,7 +124,7 @@ TextureImporter:
     - name: stamina_bottom
       rect:
         serializedVersion: 2
-        x: 48
+        x: 208
         y: 96
         width: 16
         height: 3
@@ -134,7 +134,7 @@ TextureImporter:
     - name: stamina_top
       rect:
         serializedVersion: 2
-        x: 48
+        x: 208
         y: 125
         width: 16
         height: 3
@@ -144,7 +144,7 @@ TextureImporter:
     - name: stamina_empty
       rect:
         serializedVersion: 2
-        x: 48
+        x: 208
         y: 112
         width: 16
         height: 13
@@ -154,8 +154,8 @@ TextureImporter:
     - name: stamina_full
       rect:
         serializedVersion: 2
-        x: 48
-        y: 99
+        x: 208
+        y: 100
         width: 16
         height: 12
       alignment: 0
