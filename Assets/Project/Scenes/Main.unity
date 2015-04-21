@@ -1827,8 +1827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f8108aa06989b4780e9cefaf9878e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStart: {fileID: 7400000, guid: b32d94c38f638874f82d71fef88443d6, type: 2}
-  gameEnd: {fileID: 7400000, guid: 2000eaee9515b5543ba60932d51491af, type: 2}
   onGameStart:
     m_PersistentCalls:
       m_Calls:
